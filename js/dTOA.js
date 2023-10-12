@@ -5,15 +5,15 @@ let c = ++a;// = 3
 let d = "hello"; b, and c?// =
 let e = false;// = false
 
-d++;// = nan
-e++;// = 1
+d++;// = undefined
+e++;// = 0
 let perplexed; // perplexed is undefined (no value is assigned)
 // =
-perplexed + 2;exed is undefined (no value is assigned)
-let price = 2.7;// = price
-price.toFixed(2);
+perplexed + 2;exed is undefined (no value is assigned)// nan
+let price = 2.7;//
+price.toFixed(2);//2.70
 let price = "2.7";
-price.toFixed(2);// = err
+price.toFixed(2);// = undefined
 isNaN(0)// false
 
 isNaN(1)// false
@@ -76,20 +76,22 @@ let sample = 'Hello Codeup Class'
 undefined
 let sam = sample.replace('Class', 'Students')
 
-sam.indexOf('C'
-VM803:1 Uncaught SyntaxError: missing ) after argument list
+//sam.indexOf('C'
+//VM803:1 Uncaught SyntaxError: missing ) after argument list
 sam.indexOf('C')
 6
 sam.indexOf('c')
 -1
-
+console.log(sam.substring(6,12))
 
 
 let LM = 3; let BB = 5; let H = 1; let T = LM + BB + H; let totalCost = 3 * T;
 undefined
 totalCost
 27
-let G = 400; let A = 380; let F = 350; let hoursG = 6 * G; let hoursA = 4 * A; let hoursF = 10 * F;
+let G = 400; let A = 380;
+let F = 350; let hoursG = 6 * G;
+let hoursA = 4 * A; let hoursF = 10 * F;
 
 console.log(hoursG, hoursA, hoursF)
 //VM1461:1 2400 1520 3500
@@ -101,7 +103,7 @@ let username = 'codeup';
 let password = 'notastrongpassword';
 
 let check5char = password.length>4;
-let notusernm = password.includes(username);
+let notusernm = !password.includes(username);
 let max20 = password.length<21;
 let spacepass = password.trim;
 let spaceuser = username.trim
