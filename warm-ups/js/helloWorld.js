@@ -1,2 +1,2 @@
 userAge = prompt (`What is your age?`)
-alert = `Wow, ${userAge}? your'e old!`
+alert(`Wow, ${userAge}? your'e old!`)
