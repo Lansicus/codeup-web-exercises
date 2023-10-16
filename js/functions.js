@@ -9,8 +9,8 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 {
-    const saysHello = (rece) => "Hello, " + rece;
-console.log(saysHello("coderrr"))
+    const sayHello = (name) => "Hello, " + name;
+console.log(sayHello("coderrr"))
 
 
 
@@ -22,7 +22,7 @@ console.log(saysHello("coderrr"))
  * console.log 'helloMessage' to check your work
  */
 
-    let helloMessage = saysHello("Lance")
+    let helloMessage = sayHello("Lance")
         console.log(helloMessage)
 
 
@@ -35,7 +35,8 @@ console.log(saysHello("coderrr"))
  */
 
     let myName = "Lance"
-    saysHello(myName)
+    sayHello(myName)
+    console.log(sayHello("Lance"))
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -106,8 +107,8 @@ alert(`Your tip will be ${calculateTip(bill, tip1)}`)
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 
-let disc = prompt('what discount percentage between 0 and 1?')
+let disc = prompt('what discount percentage between .0 and .1?')
 let price = prompt('what is the total bill?')
-const applyDiscount = (price, disc) => price * disc
+const applyDiscount = (price, disc) => price - price * disc
     alert(`your discounted price is ${applyDiscount(disc, price)}`)
 }
