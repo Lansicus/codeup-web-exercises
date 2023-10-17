@@ -19,3 +19,28 @@ console.log(capitalizedFirstLetter1("wow"))
 it wll give a return starting at the last character Ex:  .slice(-3)
 
  */
+/* ********** */
+
+//Daily Warm-ups Oct, 17, 2023
+
+const largestNum = (num1, num2, num3) => {
+    if (num1 >= num2 && num1 >= num3) {
+        return num1 + " is the greatest number"
+    } else if (num2 >= num1 && num2 >= num3) {
+        return num2 + " is the greatest number";
+    } else if (num3 >= num1 && num3 >= num2)
+        return num3 + " is the greatest number"
+    }
+console.log((largestNum(15, 18, 18)))
+/* The above code takes in 3 parameters
+and determines which of them is the largest by comparing each
+of them to the other two and then passing them on if they are larger
+ */
+
+const largestNumba = (numa, numb, numc) => Math.max(numa, numb, numc)
+alert(largestNumba(parseInt(prompt("number 1?")), parseInt(prompt("number 2?")), parseInt(prompt("number 3?"))))
+/* This function takes in three parameters and runs the result of Math.max
+(this determines the maximum number within  the parameters.
+The parameters are set by user input from the prompts within the function.
+The user is then alerted which of their 3 inputs is determined largest.
+ */
