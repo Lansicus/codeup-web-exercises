@@ -101,15 +101,15 @@
 //         case 0:
 //             return pri;
 //         case 1:
-//             return pri - pri * .1;
+//             return pri * .9;
 //         case 2:
-//             return pri - pri * .25;
+//             return pri * .75;
 //         case 3:
-//             return pri - pri * .35;
+//             return pri * .65;
 //         case 4:
-//             return pri - pri * .50;
+//             return pri * .50;
 //         case 5:
-//             return 0;
+//             return pri * 0;
 //         default:
 //           console.log("do sun")
 //     }
@@ -145,32 +145,77 @@
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
-let g = confirm("would you like to enter a number?")
-//if confirm is input 'g' will equal true
-//the 'if' statement is asking if the 'g' variable has been identified as true or not
-if (g) {
-    let chosen = prompt("use number characters only")
+/* This function is left blank because it assumes the data kept within the 'result' { }
 
+ */
+let confirmed = confirm("would you like to enter a number?")
+//If 'okay' is input on the webpage 'confirmed' will equal true
+//The 'if' statement is asking if the 'g' variable has been identified as true or not
+const numberGame = () => {
+    if (confirmed) {
+        let chosen = parseFloat(prompt("use number characters only"))
+/* THE ORDER OF OPERATIONS WILL BREAK THE CODE:
+If the simplest 'if' statements aren't ran first,
+the function will assume that they fall into the
+other classifications of the larger 'if' statements.
+EX: 'k' will return a boolean instead of alerting 'try again'
+ */
+        if (isNaN(chosen)) {
+            alert("Try again: use number characters only")
 
-//
-    if (chosen % 2 === 0) {
-        alert("Your number is even")
+        } else if (chosen === 0) {
+            alert("Your number is not + or - , odd or even.")
+            alert("Your number plus 100 is " + (parseFloat(chosen) + 100))
 
-    } else {
-        alert("Your number is odd")
+        } else if (!isNaN(chosen === 0)) {
+            alert((chosen % 2 === 1) ? "Your number is odd" : "Your number is even")
+            alert((chosen > 0) ? "Positive" : "Negative")
+            alert(("Your number plus 100 is " + (parseInt(chosen) + 100)))
+        }
+        /*if(confirmed and else if(!confirmed) are tied to each other
+ by being in the outer section of the functions brackets */
+    } else if (!confirmed) {
+        alert("BOOOOOO")
     }
-
-
-//
-    alert("Your number plus 100 is " + (parseInt(chosen) + 100))
-
+} /* Pay close attention to which curley brackets are linked */
+numberGame()
 //*Math.sign gives a 1 for positive and a -1 for negative
 //https://www.w3schools.com/jsref/jsref_sign.asp#:~:text=sign()%20method%20retuns%20whether,is%20zero%2C%20it%20returns%200
-    if (Math.sign(chosen) === 1) {
-        alert("Your number is Positive")
 
-    } else {
-        alert("Your number is negative")
-    }
+// alert(
+// if (Math.sign(chosen) !== 1) {
+//     alert("Your number is negative")
+// } else {
+//     alert("Your number is Positive")
+//
+// }
+// )
+// function isEvenOdd(num) {
+//     if(num === 0) {
+//          return `${num} not positive or negative`
+//     } else if (num % 2 === 0) {
+//         return `${num} an even number`
+//
+//     } else if(num % 2 === 1) {
+//         return `${num} is an odd number`
+//     }
+// }
+//
+// //add 100
+// function addOneHundred(num) {
+//     return `${num} + 100 is ${num + 100}`
+// }
+//
+// // pos or neg
+// function posNeg(num) {
+//     if(num > 0) {
+//         return `${num} is a positive number`
+//     }else if (num < 0) {
+//         return `${num} is a negative number`
+//     }else {
+//         return`Your number is not negative or positive`
+//     }
+// }
 
-}
+//
+
