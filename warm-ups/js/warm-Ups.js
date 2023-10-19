@@ -37,10 +37,22 @@ and determines which of them is the largest by comparing each
 of them to the other two and then passing them on if they are larger
  */
 
-const largestNumba = (numa, numb, numc) => Math.max(numa, numb, numc)
-alert(largestNumba(parseInt(prompt("number 1?")), parseInt(prompt("number 2?")), parseInt(prompt("number 3?"))))
+// const largestNumba = (numa, numb, numc) => Math.max(numa, numb, numc)
+// alert(largestNumba(parseInt(prompt("number 1?")), parseInt(prompt("number 2?")), parseInt(prompt("number 3?"))))
 /* This function takes in three parameters and runs the result of Math.max
 (this determines the maximum number within  the parameters.
 The parameters are set by user input from the prompts within the function.
 The user is then alerted which of their 3 inputs is determined largest.
  */
+
+//Daly Warm-Ups Oct, 19, 2023
+/*Declare a variable named 'num' with a value of 100.
+Using a while loop decrement 'num' by 5 until you reach zero,
+and console.log("even") for every even number.
+ */
+let num = 100
+do {
+    console.log(num -= 5)
+
+}while(num > 0)
+
