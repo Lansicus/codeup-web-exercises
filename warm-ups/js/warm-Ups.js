@@ -6,9 +6,10 @@ console.log('My name is ' + name + ' and I graduated high school in ' + year)
 
 ************/
 
-//Daily Warm-ups Oct, 16, 2023
-const capitalizedFirstLetter = (expedite) => expedite.charAt(0).toUpperCase() + expedite.slice(1,);
-console.log(capitalizedFirstLetter("supercalifragilistic"))
+// **************************************   Daly Warm-Ups Oct, 16, 2023   ***************************************
+
+// const capitalizedFirstLetter = (expedite) => expedite.charAt(0).toUpperCase() + expedite.slice(1,);
+// console.log(capitalizedFirstLetter("supercalifragilistic"))
 /*charAt takes whatever character you fill in to the index.
 .slice will grab the start and end parameters of the input index while cutting out the previous characters.
  If a parameter is left blank it will assume to add the rest of the string
@@ -21,8 +22,7 @@ it wll give a return starting at the last character Ex:  .slice(-3)
  */
 /* ********** */
 
-//Daily Warm-ups Oct, 17, 2023
-
+// **************************************   Daly Warm-Ups Oct, 17, 2023   ***************************************
 const largestNum = (num1, num2, num3) => {
     if (num1 >= num2 && num1 >= num3) {
         return num1 + " is the greatest number"
@@ -45,7 +45,8 @@ The parameters are set by user input from the prompts within the function.
 The user is then alerted which of their 3 inputs is determined largest.
  */
 
-//Daly Warm-Ups Oct, 19, 2023 **********************************************************
+// **************************************   Daly Warm-Ups Oct, 19, 2023   ***************************************
+
 /*Declare a variable named 'num' with a value of 100.
 Using a WHILE LOOP decrement 'num' by 5 until you reach zero,
 and console.log("even") for every even number.
@@ -58,7 +59,7 @@ and console.log("even") for every even number.
 //     }else console.log("" + num)
 //
 // }while(num > 0)
-// -------------------
+// ----------------------------------------
 let i = 100;
 
 while (i > 0) {
@@ -72,3 +73,23 @@ while (i > 0) {
     i -= 5
     console.log("" + i)
 }
+
+// **************************************   Daly Warm-Ups Oct, 20, 2023   ***************************************
+
+// function isEven() {
+// for(let g = 2; g <= 100; g++) {
+//     console.log(g);
+// }} isEven();
+//-----------------------------------------
+function returnEvenNums() {             //function declaration
+    for(let l = 1; l <= 100; l++){   // for loop
+        if(l % 2 === 0){                     // if statement
+            console.log(l);
+        }
+    }
+}
+returnEvenNums();
+
+
+// **************************************   Daly Warm-Ups Oct, --, 2023   ***************************************
+
