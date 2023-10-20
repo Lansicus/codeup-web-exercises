@@ -17,32 +17,39 @@ let names = ["Juan", "Julio", "Javier", "Josue" ]
 /*    The 'console.log' here is asking for the '.length' of the array (which is four indexes).
     if we wanted to get the lengths of individual values from 'names' we would use the 'spread' array operator (...).
      */
-console.log(names.length)
+// console.log(names.length)
 
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
-    console.log(names[0]); // Juan
-    console.log(names[1]); // Julio
-    console.log(names[2]); // Javier
-    console.log(names[3]); // Josue
+    // console.log(names[0]); // Juan
+    // console.log(names[1]); // Julio
+    // console.log(names[2]); // Javier
+    // console.log(names[3]); // Josue
 
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
      * array.
      */
-    for (let i = 0; i < names.length; i++) {
-        console.log('The name at index ' + i + ' is: ' + names[i]);
-    }
+    // for (let i = 0; i < names.length; i++) {
+    //     console.log('The name at index ' + i + ' is: ' + names[i]);
+    // }
 
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-    names.forEach(names => console.log(`Here is a lovely names: ${names}.`));
+    // names.forEach = (names) => { console.log(`Here is a lovely names: ${names}.`)
+    // } // I don't know if this one actually works
+
+    // names.forEach(names => console.log(`Here is a lovely names: ${names}.`));
+    // // OR
+    // for(let name of names) {
+    //     console.log(name)
+    // }
 
     /**
      * TODO:
@@ -57,13 +64,13 @@ console.log(names.length)
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-let last  = names => names[names.length-1];
+let last  = lastName => lastName[names.length-1];
     console.log(last(names))
 
-let second = names => names[1];
+let second = secondName => names[1];
     console.log(second(names))
 
-    let first = names => names[0];
+    let first = firstName => names[0];
     console.log(first(names))
 
 })();
