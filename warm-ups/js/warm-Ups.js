@@ -65,12 +65,11 @@ let i = 100;
 while (i > 0) {
     if (i === 0) {
         console.log("You have reached the landing zone")
-    } else if ((i % 2 === 0) && (i >= 5))
-    {i -= 5
+    } else if ((i % 2 === 0) && (i >= 5)) {
+        i -= 5
         console.log(`${i} is even`)
-    }
-    else
-    i -= 5
+    } else
+        i -= 5
     console.log("" + i)
 }
 
@@ -82,14 +81,21 @@ while (i > 0) {
 // }} isEven();
 //-----------------------------------------
 function returnEvenNums() {             //function declaration
-    for(let l = 1; l <= 100; l++){   // for loop
-        if(l % 2 === 0){                     // if statement
+    for (let l = 1; l <= 100; l++) {   // for loop
+        if (l % 2 === 0) {                     // if statement
             console.log(l);
         }
     }
 }
+
 returnEvenNums();
 
 
-// **************************************   Daly Warm-Ups Oct, --, 2023   ***************************************
-
+// **************************************   Daly Warm-Ups Oct, 23, 2023   ***************************************
+//establish an array with 5 movie name elements
+let favoriteMovies = ['TMNT', 'Rush_Hour', 'Princes_Bride', '300', 'Mega_Mind'];
+//sort the array alphabetically with the '.sort()' method
+favoriteMovies.sort()
+//run through each element from 'favoriteMovies' with the '.forEach' method.
+// Return the result of each element 'console.log()'
+favoriteMovies.forEach((movie) => console.log(movie));

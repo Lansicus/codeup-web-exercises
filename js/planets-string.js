@@ -10,7 +10,7 @@
      * planetsArray.
      * console.log planetsArray to check your work
      */
-planetsArray = planetsString.split('|')
+planetsArray = planetsString.split('|')// split will cut out anything that is put within the parenthesis
     console.log(planetsArray);
 
     /**
@@ -24,5 +24,19 @@ planetsArray = planetsString.split('|')
      * string, and <li> tags around each planet.
      */
 
-    console.log(planetsArray.join('<br>'))
+    console.log(planetsArray.join(`<br>`))
+// '.join' will join or connect elements in an array with whatever is in the quote
+            // --------------------------
+//BONUS:
+    let planetString2 = `<ul>
+    <li>${planetsArray.join(`</li>
+    <li>`)}</li>
+    </ul>`;
+/*planetString2 uses back tics to add in the <ul> and <li> open and closing tags.
+Template literal within all of that will give all elements of the 'planetsArray.join' array
+an opening and closing <li> tag.
+ */
+    console.log(planetString2);
+
+
 
