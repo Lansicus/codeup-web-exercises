@@ -158,5 +158,5 @@ shoppers.forEach((people) => people.amount > 200 ? console.log(`Your old price w
      */
 
 
-const createBook = (title, author) => books{title, author}
+// const createBook = (title, author) => books{title, author}
 // const showBookInfo = (bookObject) =>
