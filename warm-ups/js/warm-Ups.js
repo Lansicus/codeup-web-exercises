@@ -130,14 +130,14 @@ const cars = [
 //------------------------------Solution3 'Arrow Function .forEach'
 /*function established = 'displayCars'. Parameter set = 'cars'. The result of this will be a 'for of loop'.
  \t tabs a line. \n brings code to the next line down*/
-const displayCars = (input) => {
-    input.forEach(car => {
-        console.log(
-        `\tmake: ${car.make},
-        model: ${car.model},
-        color: ${car.color}\n`);
-    });
-};displayCars(cars)
+// const displayCars = (input) => {
+//     input.forEach(car => {
+//         console.log(
+//         `\tmake: ${car.make},
+//         model: ${car.model},
+//         color: ${car.color}\n`);
+//     });
+// };displayCars(cars)
 
 
 // **************************************   Daly Warm-Ups Oct, 2-, 2023   ***************************************

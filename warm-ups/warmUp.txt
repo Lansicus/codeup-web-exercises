@@ -14,3 +14,24 @@
 	<script src="index.js"></script>
   </body>
 </html>
+
+
+// **************************************   Daly Warm-Ups Oct, 26, 2023   ***************************************
+
+// -------------------Write one paragraph about your ideal web development job.-------------------
+
+/* I think id rather work in person than remote. but only in an office with a good culture and lots of breaks and colors.
+I'd like the opportunity to engage in projects with creative freedom.
+I want to get paid more than enough for the tasks im assigned.
+I'd also like to have enough hours away from work that id be able to pursue passion projects outside of coding.
+I want it to be a positive learning environment where everyone is trying their best to improve and develop greater proficiency.
+
+In Summary:         CREATIVE FREEDOM
+                    IN PERSON
+                    COLORFUL, COMFORTABLE AND WELCOMING ENVIRONMENT
+                    HIGH COMPENSATION
+                    BREAKS, TIME OFF, AND VACATION
+                    LEARNING ENCOURAGED
+*/
+
+// **************************************   Daly Warm-Ups Oct, 2-, 2023   ***************************************
