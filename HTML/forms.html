@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register With Us</title>
+</head>
+<body>
+<form method="POST" action="https://request-inspector.glitch.me/">
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="text" placeholder="email"> <!--value="autofill"-->
+    <br>
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="password">
+    <br>
+<br>
+
+    <label for="txtarea">Bio</label>
+    <br><!-- You would probably use this section for a bio -->
+    <textarea id="txtarea" name="comment" placeholder="Tell us about yourself"></textarea>
+<br>
+    <p>How did you hear about us?</p>
+
+    A <input type="radio" name="quiz_question_1" value="a">Billboard<br>
+    B <input type="radio" name="quiz_question_2" value="b">Radio advertisement<br>
+    C <input type="radio" name="quiz_question_3" value="c">internet advertisement<br>
+    D <input type="radio" name="quiz_question_4" value="d">other<br>
+
+    <br>
+    <select name="What website are you using?">
+        <option value="light">Chrome</option>
+        <option value="dark">FireFox</option> <!--This pre-selects this drop down item-->
+        <option value="espresso">Safari</option>
+    </select>
+    <br>
+    <button type="submit">Enter</button>
+    <br>
+
+</form>
+</body>
+</html>
