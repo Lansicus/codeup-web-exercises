@@ -25,19 +25,19 @@
 <br>
     <p>How did you hear about us?</p>
 
-    A <input type="radio" name="quiz_question_1" value="a">Billboard<br>
-    B <input type="radio" name="quiz_question_2" value="b">Radio advertisement<br>
-    C <input type="radio" name="quiz_question_3" value="c">internet advertisement<br>
-    D <input type="radio" name="quiz_question_4" value="d">other<br>
+    A <input type="radio" name="quiz_question_1" value="a" id="billboard">Billboard<br>
+    B <input type="radio" name="quiz_question_2" value="b" id="radioAdvertisement">Radio advertisement<br>
+    C <input type="radio" name="quiz_question_3" value="c" id="internetAdvertisement">internet advertisement<br>
+    D <input type="radio" name="quiz_question_4" value="d" id="other(radio)">other<br>
 
     <br>
-    <label name="Browser">What web browser are you using?</label>
+    <label for="browser">What web browser are you using?</label>
     <br>
-    <select name="Browser?">
-        <option value="Chrome">Chrome</option>
-        <option value="FireFox">FireFox</option> <!--This pre-selects this drop down item-->
-        <option value="Safari">Safari</option>
-        <option value="Other">Other</option>
+    <select name="Browser?" id="browser">
+        <option value="Chrome" id="chrome">Chrome</option>
+        <option value="FireFox" id="fireFox">FireFox</option> <!--"selected". This pre-selects this drop down item-->
+        <option value="Safari" id="safari">Safari</option>
+        <option value="Other" id="other(browserType)">Other</option>
     </select>
     <br>
     <button type="submit">Enter</button>
