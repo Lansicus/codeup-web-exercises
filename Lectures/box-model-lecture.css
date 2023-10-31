@@ -1,0 +1,54 @@
+div {
+    width: 300px;
+    height: 150px;
+    background-color: #008b7b;
+}
+
+#one {
+    padding: 30px;
+    background-color: darkgreen;
+    border: 5px solid red;/* border can be solid or dashed*/
+    margin-bottom: 10px;
+}
+
+#two {
+    /*if padding has one answer it will control all sides. The first of two answers will control top and bottom,
+     the second will control the left and right. The first of four inputs will be the top, then right, bottom,
+      and left. same rule for margin*/
+    padding: 10px 50px;
+    border: 3px dashed black;
+    margin: 10px;
+}
+
+#three {
+    padding: 5px 30px 40px 15px;
+    margin: 50px 5px 50px 50px;
+}
+
+.buttonBig {
+    background-color: green;
+    margin: 10px;
+    border: 3px solid #8b0019;
+    padding: 10px 20px;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+
+
+}
+
+.hello {
+    margin: 10px;
+    border: 3px solid grey;
+}
+
+.box p {
+    font-size: 24px;
+}
+
+.box span {
+    font-size: 18px;
+    margin: 40px;
+    background-color: #8b0019;
+
+}

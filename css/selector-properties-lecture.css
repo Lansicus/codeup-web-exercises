@@ -1,0 +1,43 @@
+/*select element by name(element name)*/
+h1 {
+    color: gold;
+/*text-align: center;*/
+}
+
+/* '#' is for "id" */
+#header2 {
+    color: #8b0019;
+}
+/* '.' is for "class"*/
+
+.content {
+    background-color: dimgray;
+}
+
+h1, .content {
+    font-weight: lighter;
+}
+/*------------------------------------*/
+
+.fancy-header {
+    font-family: cursive;
+}
+
+.extra-large {
+    color: red;
+}
+/*--------------------------*/
+/*Descendant selector*/
+#container h1 {
+    color: #aa0cea;
+}
+/*---------------------------*/
+/*Direct-child Selector*/
+#container>p {
+    background: #ABC;
+}
+/*Combined Selectors*/
+h1.content {
+    color: cadetblue;
+    text-indent: 50px;
+}

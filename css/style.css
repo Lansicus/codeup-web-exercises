@@ -1,4 +1,56 @@
 
 .fancy-header {
-    color: purple;
+    color: #8b0019;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    color: #8b0019;
+    text-decoration: underline;
+}
+
+html {
+    background-color: #081711;
+    background-image: url("https://www.chromethemer.com/download/phone-backgrounds/skyrim.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top right;
+    font-family: "Academy Engraved LET", fantasy;
+}
+/* Number 6 Add a style to change the list-style to something other than the default bullet.*/
+ol, ul {
+    list-style: disc;
+}
+
+table {
+    font-size: 25px;
+    padding: 20px;
+    width: 100%;
+}
+
+th, td {
+    border: 2px solid darkgreen;
+    padding: 12px;
+    text-align: center;
+}
+
+thead {
+    background-color: #8b0019;
+    color: brown;
+}
+
+a:link {
+    color: #8b0019;
+    text-decoration: none;
+}visited:link {
+    color: #008b7b;
+}hover:link {
+    color: #00178b;
+    font-size: 25px;
+}active:link {
+    color: #8b006b;
+    text-decoration: none;
 }
