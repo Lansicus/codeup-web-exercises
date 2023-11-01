@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message {
+    margin: 8px;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    padding: .5em;
+}
+
+.message-info {
+    color: #6362b3;
+    background-color: #ccdeff;
+}
+
+.message-success {
+    background-color: #cff3da;
+    color: #3f8c5d;
+}
+
+.message-warning {
+    color: #fcfbc9;
+    background-color: #b0a251;
+}
+
+.message-error {
+    color: #fad2d6;
+    background-color: #af5d6f;
+}
+
+:root {
+    --text-info: #6362b3;
+    --bg-info: #ccdeff;
+
+    --text-success: #cff3da;
+    --bg-success: #3f8c5d;
+
+    --text-warning: #fad2d6;
+    --bg-warning: #b0a251;
+
+    --text-error: #fad2d6;
+    --bg-error: #af5d6f
+}
+
+.message-info {
+    color: var(--text-info); /* Use the correct variable name and specify a fallback color if needed */
+    background-color: var(--bg-info); /* Use the correct variable name and specify a fallback color if needed */
+}
