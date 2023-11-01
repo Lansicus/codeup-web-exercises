@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Basics Examples</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
+    .flex-container {
+      display: flex;
+    //flex-direction: column; //justify-content: center; //align-items: center; width: 100%;
+      height: 500px;
+      border: 3px solid goldenrod;
+      flex-wrap: wrap;
+    //align-content: space-between; align-items: baseline;
+    }
+
+    .flex-item {
+      background: #BFD45D;
+      border: 2px solid #F9EFD6;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="flex-container">
+  <div class="flex-item">Item 1</div>
+  <div style="height: 20px; flex-grow: 1" class="flex-item">Item 2</div>
+  <div class="flex-item">Item 3</div>
+  <div style="height: 20px" class="flex-item">Item 4</div>
+  <div class="flex-item">Item 5</div>
+  <div style="height: 20px; flex-grow: 1" class="flex-item">Item 6</div>
+  <div class="flex-item">Item 7</div>
+  <div style="height: 20px" class="flex-item">Item 8</div>
+  <div class="flex-item">Item 9</div>
+  <div style="height: 20px;" class="flex-item">Item 10</div>
+  <div class="flex-item" style="flex-grow: 6">Item 11</div>
+  <div style="height: 20px; flex-grow: 6" class="flex-item">Item 12</div>
+</div>
+
+</body>
+</html>
