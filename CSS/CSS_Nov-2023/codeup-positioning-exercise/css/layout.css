@@ -4,6 +4,20 @@
     position: relative;
 }
 
+.register {
+    display: flex;
+    justify-content: center;
+
+}
+.link {
+text-decoration: none;
+}
+
+.register2 {
+    text-decoration: none;
+    margin-left: 1em;
+}
+
 .X-button {
 position: absolute;
     top: -10px;
