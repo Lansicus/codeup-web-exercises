@@ -16,14 +16,13 @@
 /*    transform: translate(-50%, -50%);*/
 /*}*/
 /* --------------------------------------SECOND ATTEMPT --------------------------------- */
-#set-height
-display block
-height 13500px
-            #v0
-            position fixed
-            top 0
-left 0
-width 100%
-
-p font-family helvetica
-font-size 24px
+#set-height {
+    display: flex;
+    height: 13500px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+}

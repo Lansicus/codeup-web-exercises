@@ -73,7 +73,7 @@ and 1/5's = 0.200000. Results are printed as:
 // });/* ----------------------SECOND ATTEMPT TO MAKE A SCROLLING VIDEO---------------------- */
 
 // select video element
-var vid = document.getElementById('v0');
+let vid = document.getElementById('v0');
 //var vid = $('#v0')[0]; // jquery option
 
 // pause video on load

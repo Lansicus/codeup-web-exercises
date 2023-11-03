@@ -1,0 +1,107 @@
+
+
+/*.logo {*/
+/*    display: flex;*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*    margin: auto;*/
+/*}*/
+
+/*.right-box {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    background-color: grey;*/
+/*    border: 1px solid black;*/
+/*    align-items: flex-end;*/
+/*    margin-left: auto;*/
+/*}*/
+
+
+
+
+
+/*-----------------------------------------------------*/
+/*.body {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 0 20px; !* Optional padding for space between the containers and the viewport edges *!*/
+/*}*/
+.body {
+    display: flex;
+    justify-content: space-between;
+    background-color: grey;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.left-box,
+.right-box {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+.left-box li,
+.right-box li {
+    margin-right: 20px; /* Optional margin between list items */
+}
+
+.logo {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.magnifying-glass {
+    width: 8px;
+    height: 8px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: relative;
+    transform: translate(-40%, -20%);
+}
+
+.handle {
+    border-radius: 10px;
+    width: 2px;
+    height: 6px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(100%, -10%) rotate(-45deg); /**/
+}
+/*-----------------------------------------------------*/
+
+
+/*.search-container {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    margin: 10px;*/
+/*}*/
+
+/*#search-bar {*/
+/*    padding: 10px;*/
+/*    font-size: 16px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    margin-right: 10px;*/
+/*}*/
+
+/*#search-button {*/
+/*    padding: 10px 20px;*/
+/*    font-size: 16px;*/
+/*    background-color: #4CAF50;*/
+/*    color: white; !* text color*!*/
+/*    border: none;*/
+/*    border-radius: 5px; !* rounds corners of box*!*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*#search-button:hover {*/
+/*    background-color: #45a049;*/
+/*}*/

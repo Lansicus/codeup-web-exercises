@@ -1,0 +1,18 @@
+
+.magnifying-glass {
+    width: 25px;
+    height: 25px;
+    border: 6px solid #333;
+    border-radius: 50%;
+    position: relative;
+}
+
+.handle {
+    width: 6px;
+    height: 16px;
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(320%, 75%) rotate(-47deg);
+}
