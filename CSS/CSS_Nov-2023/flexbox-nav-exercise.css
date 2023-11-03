@@ -28,53 +28,64 @@
 /*    align-items: center;*/
 /*    padding: 0 20px; !* Optional padding for space between the containers and the viewport edges *!*/
 /*}*/
-.body {
-    display: flex;
-    justify-content: space-between;
-    background-color: grey;
-    border: 1px solid black;
-    align-items: center;
+* {
+    box-sizing: border-box;
 }
+    .body {
+        display: flex;
+        justify-content: space-between;
+        background-color: grey;
+        border: 1px solid black;
+        align-items: center;
+    }
 
-.left-box,
-.right-box {
-    list-style: none;
-    display: flex;
-    margin-right: 20px;
-}
+    h1.logo:hover {
+        color: blue;
+    }
 
-.left-box li,
-.right-box li {
-    margin-right: 20px; /* Optional margin between list items */
-}
+    .left-box,
+    .right-box {
+        list-style: none;
+        display: flex;
+        margin-right: 20px;
+    }
 
-.logo {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-}
+    .left-box li,
+    .right-box li {
+        margin-right: 20px; /* Optional margin between list items */
+    }
+
+    .logo {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 3em;
+        padding: .2em 0;
+    }
 
 
 
-.magnifying-glass {
-    width: 8px;
-    height: 8px;
-    border: 2px solid white;
-    border-radius: 50%;
-    position: relative;
-    transform: translate(-40%, -20%);
-}
+    .magnifying-glass {
+        width: 8px;
+        height: 8px;
+        border: 2px solid white;
+        border-radius: 50%;
+        position: relative;
+        transform: translate(-40%, -20%);
+    }
 
-.handle {
-    border-radius: 10px;
-    width: 2px;
-    height: 6px;
-    background-color: white;
-    position: absolute;
-    top: 100%;
-    left: 100%;
-    transform: translate(100%, -10%) rotate(-45deg); /**/
-}
+    .handle {
+        border-radius: 10px;
+        width: 2px;
+        height: 6px;
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 100%;
+        transform: translate(100%, -10%) rotate(-45deg); /**/
+    }
+
 /*-----------------------------------------------------*/
 
 
