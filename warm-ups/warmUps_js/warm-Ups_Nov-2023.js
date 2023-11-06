@@ -1,3 +1,27 @@
+
+
+// **************************************   Daly Warm-Ups Nov, 6, 2023   ***************************************
+/* Write a program that prints all numbers from 1-100. For multiples of 3: print "Fizz".
+For multiples of 5 print "Buzz". for numbers that are multiples of both 3 and 5, print "FizzBuzz".
+ */
+function counter(number) {
+    for (let i = 1; i < 100; i++)
+        if ( i % 3 === 0 && i % 5 === 0){
+            console.log(`FizzBuzz, ${[i]} `)
+        }
+        else if (i % 3 === 0) {
+            console.log(`Fizz, ${[i]}`)
+        }
+        else if (i % 5 === 0) {
+            console.log(`Buzz, ${[i]}`)
+        }
+        else {console.log(`number, ${[i]}`)}
+}
+counter()
+
+
+
+
 // **************************************   Daly Warm-Ups Nov, 2, 2023   ***************************************
 
 /* Create a function that accepts three arguments (arrOfElements, bgColor, textColor), and returns the array of objects
@@ -5,40 +29,40 @@
  */
 
 
-    let elements = [
-    {
-        el: "button",
-        style: {
-            backgroundColor: "white",
-            color: "black"
-        },
-        content: "Submit"
-    },
-    {
-        el: "p",
-        style: {
-            backgroundColor: "white",
-            color: "black"
-        },
-        content: "Our company is better at doing company things than your company."
-    },
-    {
-        el: "h2",
-        style: {
-            backgroundColor: "white",
-            color: "black"
-        },
-        content: "Welcome Back!"
-    }
-];
-const CptnGinyu = (Guldo, Burter, Jeice) => {
-    Guldo.forEach(function (Recoome) {
-        Recoome.style.backgroundColor = Burter;
-        Recoome.style.color = Jeice;
-    })
-    return Guldo
-}
-console.log(CptnGinyu(elements, 'blue', 'red'));
+//     let elements = [
+//     {
+//         el: "button",
+//         style: {
+//             backgroundColor: "white",
+//             color: "black"
+//         },
+//         content: "Submit"
+//     },
+//     {
+//         el: "p",
+//         style: {
+//             backgroundColor: "white",
+//             color: "black"
+//         },
+//         content: "Our company is better at doing company things than your company."
+//     },
+//     {
+//         el: "h2",
+//         style: {
+//             backgroundColor: "white",
+//             color: "black"
+//         },
+//         content: "Welcome Back!"
+//     }
+// ];
+// const CptnGinyu = (Guldo, Burter, Jeice) => {
+//     Guldo.forEach(function (Recoome) {
+//         Recoome.style.backgroundColor = Burter;
+//         Recoome.style.color = Jeice;
+//     })
+//     return Guldo
+// }
+// console.log(CptnGinyu(elements, 'blue', 'red'));
 
 /* CptnGinyu takes in three parameters expecting Guldo to be an array
 * Burter to be the new background color, and Jeice to be the new text color.-------------
@@ -52,23 +76,23 @@ console.log(CptnGinyu(elements, 'blue', 'red'));
 //Objective: Create a function that takes in an array and returns an array of the names of people who know JavaScript
 
 //Data Structure/Example Input:
-let developers = [{
-    name: "Jonathan", languages: {
-        frontend: ["HTML", "JavaScript", "CSS"], backend: ["Java"]
-    }
-}, {
-    name: "Bonnie", languages: {
-        frontend: ["JavaScript"], backend: []
-    }
-}, {
-    name: "Raj", languages: {
-        frontend: [], backend: ["C#", "Java", "Python"]
-    }
-}, {
-    name: "Carmen", languages: {
-        frontend: ["JavaScript", "HTML", "CSS", "React"], backend: ["C#", "Java", "Python", "TypeScript"]
-    }
-},]
+// let developers = [{
+//     name: "Jonathan", languages: {
+//         frontend: ["HTML", "JavaScript", "CSS"], backend: ["Java"]
+//     }
+// }, {
+//     name: "Bonnie", languages: {
+//         frontend: ["JavaScript"], backend: []
+//     }
+// }, {
+//     name: "Raj", languages: {
+//         frontend: [], backend: ["C#", "Java", "Python"]
+//     }
+// }, {
+//     name: "Carmen", languages: {
+//         frontend: ["JavaScript", "HTML", "CSS", "React"], backend: ["C#", "Java", "Python", "TypeScript"]
+//     }
+// },]
 ////-----------------------------=--BROKEN
 // let JS_coders = "JavaScript"
 // function JS_developers(array) {
@@ -96,17 +120,17 @@ let developers = [{
 // }
 // console.log(devsWhoKnowJS(developers))
 //-------------------------------------THIS WORKS
-const knowsJavaScript = (arr) => {
-    let JavaScriptDevs = [];
-    for (let i = 0; i < arr.length; i++) {
-
-        for (let j = 0; j < arr[i].languages.frontend.length; j++) {
-
-            if (arr[i].languages.frontend[j] === "JavaScript") {
-                JavaScriptDevs.push(arr[i].name)
-            }
-        }
-    }
-    return JavaScriptDevs
-}
-console.log(knowsJavaScript(developers))
+// const knowsJavaScript = (arr) => {
+//     let JavaScriptDevs = [];
+//     for (let i = 0; i < arr.length; i++) {
+//
+//         for (let j = 0; j < arr[i].languages.frontend.length; j++) {
+//
+//             if (arr[i].languages.frontend[j] === "JavaScript") {
+//                 JavaScriptDevs.push(arr[i].name)
+//             }
+//         }
+//     }
+//     return JavaScriptDevs
+// }
+// console.log(knowsJavaScript(developers))
