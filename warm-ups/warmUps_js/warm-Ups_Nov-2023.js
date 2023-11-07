@@ -4,20 +4,20 @@
 /* Write a program that prints all numbers from 1-100. For multiples of 3: print "Fizz".
 For multiples of 5 print "Buzz". for numbers that are multiples of both 3 and 5, print "FizzBuzz".
  */
-function counter(number) {
-    for (let i = 1; i < 100; i++)
+function oneToX(numbah) {
+    for (let i = 1; i <= numbah; i++)
         if ( i % 3 === 0 && i % 5 === 0){
-            console.log(`FizzBuzz, ${[i]} `)
+            console.log(`FizzBuzz, ${i} `)
         }
         else if (i % 3 === 0) {
-            console.log(`Fizz, ${[i]}`)
+            console.log(`Fizz, ${i}`)
         }
         else if (i % 5 === 0) {
-            console.log(`Buzz, ${[i]}`)
+            console.log(`Buzz, ${i}`)
         }
-        else {console.log(`number, ${[i]}`)}
+        else {console.log(`number, ${i}`)}
 }
-counter()
+oneToX(100)
 
 
 
