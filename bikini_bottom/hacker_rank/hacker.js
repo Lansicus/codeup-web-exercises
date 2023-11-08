@@ -28,23 +28,31 @@ A single string  that represents a time in -hour clock format (i.e.:  or ).
 All input times are valid
 
 07:05:45PM = Sample Output = 19:05:45 */
-
+/*--------------------------------------------------------------------------------------*/
+// The timeConversion function takes a string s representing time in 12-hour format with AM/PM designation.
     function timeConversion(s) {
-        let [time, period] = s.split(' ');
+        /* s.split(' ') splits the input string into two parts:
+         time (containing hours, minutes, and seconds) and period (containing AM/PM).*/
+        let [time, period] = s.split(' ');/*--------------------------------------------*/
+        /*time.split(':').map(Number) splits the time part into hours, minutes, and seconds using the colon (:)
+         as a delimiter and converts them to numbers.*/
         let [hours, minutes, seconds] = time.split(':').map(Number);
-
-        // Convert 12-hour format to 24-hour format
+        /*------------------------------------------------------------------------------*/
+        /*The code then checks if the period is 'PM' and the hours are not 12.
+         If so, it adds 12 to the hours to convert from 12-hour to 24-hour format.
+          If the period is 'AM' and the hours are 12, it sets the hours to 0 (midnight).*/
         if (period === 'PM' && hours !== 12) {
             hours += 12;
         } else if (period === 'AM' && hours === 12) {
             hours = 0;
-        }
-
-        // Add leading zero to hours, minutes, and seconds if necessary
+        }/*-----------------------------------------------------------------------------*/
+        /*The code adds a leading zero to hours, minutes, and seconds if they are less than 10,
+         ensuring that they are displayed as two digits.*/
         hours = hours < 10 ? '0' + hours : hours;
         minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-
+        seconds = seconds < 10 ? '0' + seconds : seconds;/*-----------------------------*/
+        /* Finally, the function returns the time in 24-hour format as a formatted string in the format HH:MM:SS,
+         where HH represents hours (00-23), MM represents minutes (00-59), and SS represents seconds (00-59).*/
         return `${hours}:${minutes}:${seconds}`;
     }
     timeConversion()
