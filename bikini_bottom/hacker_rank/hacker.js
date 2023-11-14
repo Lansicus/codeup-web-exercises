@@ -30,32 +30,32 @@ All input times are valid
 07:05:45PM = Sample Output = 19:05:45 */
 /*--------------------------------------------------------------------------------------*/
 // The timeConversion function takes a string s representing time in 12-hour format with AM/PM designation.
-    function timeConversion(s) {
-        /* s.split(' ') splits the input string into two parts:
-         time (containing hours, minutes, and seconds) and period (containing AM/PM).*/
-        let [time, period] = s.split(' ');/*--------------------------------------------*/
-        /*time.split(':').map(Number) splits the time part into hours, minutes, and seconds using the colon (:)
-         as a delimiter and converts them to numbers.*/
-        let [hours, minutes, seconds] = time.split(':').map(Number);
-        /*------------------------------------------------------------------------------*/
-        /*The code then checks if the period is 'PM' and the hours are not 12.
-         If so, it adds 12 to the hours to convert from 12-hour to 24-hour format.
-          If the period is 'AM' and the hours are 12, it sets the hours to 0 (midnight).*/
-        if (period === 'PM' && hours !== 12) {
-            hours += 12;
-        } else if (period === 'AM' && hours === 12) {
-            hours = 0;
-        }/*-----------------------------------------------------------------------------*/
-        /*The code adds a leading zero to hours, minutes, and seconds if they are less than 10,
-         ensuring that they are displayed as two digits.*/
-        hours = hours < 10 ? '0' + hours : hours;
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;/*-----------------------------*/
-        /* Finally, the function returns the time in 24-hour format as a formatted string in the format HH:MM:SS,
-         where HH represents hours (00-23), MM represents minutes (00-59), and SS represents seconds (00-59).*/
-        return `${hours}:${minutes}:${seconds}`;
-    }
-    timeConversion()
+//     function timeConversion(s) {
+//         /* s.split(' ') splits the input string into two parts:
+//          time (containing hours, minutes, and seconds) and period (containing AM/PM).*/
+//         let [time, period] = s.split(' ');/*--------------------------------------------*/
+//         /*time.split(':').map(Number) splits the time part into hours, minutes, and seconds using the colon (:)
+//          as a delimiter and converts them to numbers.*/
+//         let [hours, minutes, seconds] = time.split(':').map(Number);
+//         /*------------------------------------------------------------------------------*/
+//         /*The code then checks if the period is 'PM' and the hours are not 12.
+//          If so, it adds 12 to the hours to convert from 12-hour to 24-hour format.
+//           If the period is 'AM' and the hours are 12, it sets the hours to 0 (midnight).*/
+//         if (period === 'PM' && hours !== 12) {
+//             hours += 12;
+//         } else if (period === 'AM' && hours === 12) {
+//             hours = 0;
+//         }/*-----------------------------------------------------------------------------*/
+//         /*The code adds a leading zero to hours, minutes, and seconds if they are less than 10,
+//          ensuring that they are displayed as two digits.*/
+//         hours = hours < 10 ? '0' + hours : hours;
+//         minutes = minutes < 10 ? '0' + minutes : minutes;
+//         seconds = seconds < 10 ? '0' + seconds : seconds;/*-----------------------------*/
+//         /* Finally, the function returns the time in 24-hour format as a formatted string in the format HH:MM:SS,
+//          where HH represents hours (00-23), MM represents minutes (00-59), and SS represents seconds (00-59).*/
+//         return `${hours}:${minutes}:${seconds}`;
+//     }
+//     timeConversion()
 
 /* the input string is split into time and period, and the time is further split into hours,
  minutes, and seconds. The function then checks the period (AM/PM) and performs
@@ -84,15 +84,15 @@ All input times are valid
     The minimum sum is 1 + 3 + 5 + 7 = 16 and the maximum sum is 3 + 5 + 7+ 9 = 24.
         -The function prints 16 24 */
 
-function minMaxSum(arrOf5) {
-    let min = Math.min(...arrOf5);
-    let max = Math.max(...arrOf5);
-    let sum = arrOf5.reduce((acc, num) => acc + num);
-    let minSum = sum - max;
-    let maxSum = sum - min;
-    console.log(minSum, maxSum);
-}
-minMaxSum([1, 3, 5, 7, 9])
+// function minMaxSum(arrOf5) {
+//     let min = Math.min(...arrOf5);
+//     let max = Math.max(...arrOf5);
+//     let sum = arrOf5.reduce((acc, num) => acc + num);
+//     let minSum = sum - max;
+//     let maxSum = sum - min;
+//     console.log(minSum, maxSum);
+// }
+// minMaxSum([1, 3, 5, 7, 9])
 
 
 

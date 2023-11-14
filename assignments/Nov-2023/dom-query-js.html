@@ -24,50 +24,57 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+
+
 <script>
         "use strict";
-        // TODO: Uncomment next line and get the main header element by id
+// TODO: Uncomment next line and get the main header element by id
         const mainHeader = document.getElementById('main-header');
         console.log(mainHeader);
 
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+// TODO: Set inner html of mainHeader to "JavaScript is Cool"
         mainHeader.innerHTML = "JavaScript is Cool";
 
-        // TODO: Uncomment the next line and get the sub header element by id
+// TODO: Uncomment the next line and get the sub header element by id
         const subHeader = document.getElementById('sub-header');
         console.log(subHeader);
 
-        // TODO: Set the text color of subHeader to blue
+// TODO: Set the text color of subHeader to blue
         subHeader.style.color = 'blue';
         console.log(subHeader);
 
-        // TODO: Uncomment the next line and get all list items
+// TODO: Uncomment the next line and get all list items
         const listItems = document.getElementsByTagName('li');
+        /*'.getElementsByTagName' returns an HTMLCollection of elements with the given tag name ('li'). */
+        for (let i = 0; i < listItems.length; i++) {
+            console.log(listItems[i].textContent);
+        } /*The loop logs the 'textContent' of the full length of indexes from 'listItems'*/
         console.log(listItems);
-    /*'.getElementsByTagName' returns an HTMLCollection of elements with the given tag name ('li')*/
+        /*'console.log(listItems)' logs an array containing all 'li's present. NOT the content within 'li's.*/
 
-        // TODO: Set text color on every other list item to grey
+// TODO: Set text color on every other list item to grey
         for (let i = 0; i < listItems.length; i++) {
             if (i % 2 === 0) {
                 listItems[i].style.color = 'grey';
             }
         }
-    /*The for loop establishes 'listItems' indexes divided by 2 with a remainder of 0 will be styled to 'grey'*/
+        /*This for loop establishes 'listItems' indexes divided by 2 with a remainder of 0 will be styled to 'grey'*/
 
-        // TODO: Set text color of li with dbid = 1 to blue
+// TODO: Set text color of li with dbid = 1 to blue
         document.querySelector('li[data-dbid="1"]');
-    /*'querySelector' returns the first element that is a descendant of the element on which it is invoked
-     that matches the specified group of selectors.*/
+        /*'querySelector' returns the first element that is a descendant of the element on which it is invoked
+        that matches the specified group of selectors.*/
 
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        const subParagraphs = document.querySelectorAll('.sub-paragraph');
+// TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        const subParagraphs = document.getElementsByClassName('sub-paragraph');
         console.log(subParagraphs);
-    /* Uses 'querySelectorAll' to grab all instances of '.sub-paragraph' and set it to the variable 'subParagraphs'.*/
+        /*'getElementsByClassName' grabs all instances of the class 'sub-paragraph'
+         and sets it to the variable named 'subParagraphs'.*/
 
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+// TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         subParagraphs[0].textContent = "Mission Accomplished!";
         console.log(subParagraphs[0])
-//     grabs the first instance of the 'sub-paragraph' class. Changes '.textContent' to "Mission Accomplished!".
+//     grabs the first instance of the 'sub-paragraph' class. Changes 'textContent' to "Mission Accomplished!".
 
 </script>
 </body>
