@@ -1,0 +1,72 @@
+
+
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.draggable {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+}
+
+.dragging {
+    cursor: grabbing;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+/*For an equilateral triangle it’s worth pointing out that the height is 86.6% of the width
+ so (border-left-width + border-right-width) * 0.866% = border-bottom-width*/
+
+/*The idea is a box with zero width and height. The actual width and height of the arrow is determined by the width
+ of the border. In an up arrow, for example, the bottom border is colored while the left
+  and right are transparent, which forms the triangle.*/
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid black;
+    cursor: grab;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #f00;
+    cursor: grab;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    cursor: grab;
+    border-left: 60px solid green;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    cursor: grab;
+    border-right:10px solid blue;
+}
