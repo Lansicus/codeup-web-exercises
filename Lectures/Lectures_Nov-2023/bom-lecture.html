@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Browser Object Model</title>
+</head>
+<body>
+<script>
+    // console.log(innerWidth)
+    // console.log(innerHeight)
+    //
+    // confirm("Would you like to continue?")
+    'use strict';
+
+    // this code will produce a console log every second
+    // when count >= max, the interval is cancelled, and the logging will stop
+
+    let count = 0;
+    let max = 10;
+    let interval = 1000; // interval time in milliseconds
+
+    const intervalId = setInterval( () => {
+        if (count >= max) {
+            clearInterval(intervalId);
+            console.log('All done');
+        } else {
+            count++;
+            console.log('Repeating this line ' + count);
+        }
+    }, interval);
+    // *****************************************************
+    // let internalId = window.setInterval(function () {
+    //     if (count >= max) {
+    //         clearInterval(intervalId);
+    //         console.log('All done');
+    //     } else {
+    //         count++;
+    //         console.log('Repeating this line ' + count);
+    //     }
+    // }, interval);
+</script>
+</body>
+</html>
