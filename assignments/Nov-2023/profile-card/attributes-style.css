@@ -13,8 +13,7 @@
     padding: 20px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 0 auto;
-    margin-top: 50px;
+    margin: 50px auto 0;
 }
 
 #profile-card img {
@@ -33,7 +32,7 @@
     margin-top: 10px;
 }
 
-#toggle-btn {
+.btn {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -42,8 +41,9 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#toggle-btn:hover {
-    background-color: #0056b3;
-}
+/*.btn:hover {*/
+/*    transition: background-color 0.3s ease;*/
+/*}*/

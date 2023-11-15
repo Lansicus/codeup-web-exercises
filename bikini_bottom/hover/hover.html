@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide-in Color on Hover</title>
+    <style>
+        .hover-element {
+            display: block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            transform: translate(0%, 0%); /* Initial position */
+        }
+        /*.hover-element::after {*/
+        /*    transform: translate(50%, 50%);*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<button class="hover-element">Hover Over Me 1</button>
+<button class="hover-element">Hover Over Me 2</button>
+<button class="hover-element">Hover Over Me 3</button>
+
+<script>
+    function getRandomColor() {
+        let letters = '0123456789ABCDEF';
+        let hash = '#';
+        for (let i = 0; i < 6; i++) {
+            hash += letters[Math.floor(Math.random() * 16)];
+        }
+        return hash;
+    }
+
+    function changeColor(element) {
+        element.style.backgroundColor = getRandomColor();
+    }
+
+    let hoverElements = document.getElementsByClassName('hover-element');
+
+    for (let i = 0; i < hoverElements.length; i++) {
+        hoverElements[i].addEventListener('mouseenter', function() {
+            let currentElement = this;
+            currentElement.intervalId = setInterval(function() {
+                changeColor(currentElement);
+            }, 1200);
+            currentElement.style.transform = 'translate(5px, -5px)';
+        });
+
+        hoverElements[i].addEventListener('mouseleave', function() {
+            clearInterval(this.intervalId);
+            // Reset to default color and position
+            this.style.backgroundColor = '#007BFF';
+            this.style.transform = 'translate(0, 0)';
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM: Query and Modify</title>
+    <style>
+        .blue-text {
+            color: blue;
+        }
+        .grey-text {
+            color: grey;
+        }
+
+        .btn {
+            display: block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,65 +36,91 @@
 </ul>
 <h2 id="sub-header">Hello Again.</h2>
 <p class="sub-paragraph">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    aliquip ex ea commodo consequat. Duis aute irure dolor in
-    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-    culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Aliquid architecto consequuntur, corporis dolorum et excepturi explicabo fuga fugiat illum impedit, ipsum itaque,
+    maiores nemo officia officiis pariatur quod tempora unde?';
+
 </p>
 
-
+<div>
+    <button class="btn" id="headerBtn">Change Header</button>
+    <button class="btn" id="subH">Change Sub-Header</button>
+    <button class="btn" id="listBtn">every other grey</button>
+    <button class="btn" id="list1">set li 1 to blue</button>
+    <button class="btn" id="Miss">Mission accomplished?</button>
+</div>
 <script>
-        "use strict";
-// TODO: Uncomment next line and get the main header element by id
-        const mainHeader = document.getElementById('main-header');
-        console.log(mainHeader);
+    "use strict";
+    // TODO: Uncomment next line and get the main header element by id
+    //         const mainHeader = document.getElementById('main-header');
+    // console.log(mainHeader);
 
-// TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+    // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+    let buttonMainH = document.getElementById("headerBtn");
+    /*establishes that the element with the given "ID" will equal the variable buttonMainH*/
+    buttonMainH.addEventListener("click", function () {
+        let mainHeader = document.getElementById('main-header');
+        /* button function grabs the element with id 'main-header and associates it with 'mainHeader' variable.*/
+        mainHeader.textContent = (mainHeader.textContent === "Hello World!") ? "JavaScript is Cool" : "Hello World!";
+    });/*When the button is clicked if mainHeader content equals 'Hello World!' then "JavaScript is Cool"
+        will be the new text. Otherwise, the text will say "Hello World!" if clicked. "*/
 
-// TODO: Uncomment the next line and get the sub header element by id
-        const subHeader = document.getElementById('sub-header');
-        console.log(subHeader);
+    // TODO: Uncomment the next line and get the sub header element by id
+    //         const subHeader = document.getElementById('sub-header');
+    //         console.log(subHeader);
 
-// TODO: Set the text color of subHeader to blue
-        subHeader.style.color = 'blue';
-        console.log(subHeader);
+    // TODO: Set the text color of subHeader to blue
+    let buttonSubH = document.getElementById("subH");
+    buttonSubH.addEventListener("click", function () {
+        // Toggle the 'blue-text' class for the sub-header
+        document.getElementById('sub-header').classList.toggle('blue-text');
+    });
+    //         subHeader.style.color = 'blue';
+    //         console.log(subHeader);
 
-// TODO: Uncomment the next line and get all list items
-        const listItems = document.getElementsByTagName('li');
-        /*'.getElementsByTagName' returns an HTMLCollection of elements with the given tag name ('li'). */
-        for (let i = 0; i < listItems.length; i++) {
-            console.log(listItems[i].textContent);
-        } /*The loop logs the 'textContent' of the full length of indexes from 'listItems'*/
-        console.log(listItems);
-        /*'console.log(listItems)' logs an array containing all 'li's present. NOT the content within 'li's.*/
+    // TODO: Uncomment the next line and get all list items
+    //         const listItems = document.getElementsByTagName('li');
+    //         /*'.getElementsByTagName' returns an HTMLCollection of elements with the given tag name ('li'). */
+    //         for (let i = 0; i < listItems.length; i++) {
+    //             console.log(listItems[i].textContent);
+    //         } /*The loop logs the 'textContent' of the full length of indexes from 'listItems'*/
+    //         console.log(listItems);
+    //         /*'console.log(listItems)' logs an array containing all 'li's present. NOT the content within 'li's.*/
 
-// TODO: Set text color on every other list item to grey
+    // TODO: Set text color on every other list item to grey
+    let buttonList = document.getElementById('listBtn');
+    buttonList.addEventListener("click", function () {
+        let listItems = document.getElementsByTagName('li');
         for (let i = 0; i < listItems.length; i++) {
             if (i % 2 === 0) {
-                listItems[i].style.color = 'grey';
+                listItems[i].classList.toggle('grey-text');
             }
         }
-        /*This for loop establishes 'listItems' indexes divided by 2 with a remainder of 0 will be styled to 'grey'*/
+    });//kjhfgwhkjdefhgojhef
+    /*This for loop establishes 'listItems' indexes divided by 2 with a remainder of 0 will be styled to 'grey'*/
 
-// TODO: Set text color of li with dbid = 1 to blue
-        document.querySelector('li[data-dbid="1"]').style.color = 'blue';
-        /*'querySelector' returns the first element that is a descendant of the element on which it is invoked
-        that matches the specified group of selectors.*/
+    // TODO: Set text color of li with dbid = 1 to blue
+    let buttonli1 = document.getElementById('list1');
+    buttonli1.addEventListener("click", function() {
+        // Toggle the 'blue-text' class for the li with data-dbid="1"
+        document.querySelector('li[data-dbid="1"]').classList.toggle('blue-text');
+    });
 
-// TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        const subParagraphs = document.getElementsByClassName('sub-paragraph');
-        console.log(subParagraphs);
-        /*'getElementsByClassName' grabs all instances of the class 'sub-paragraph'
-         and sets it to the variable named 'subParagraphs'.*/
+    /*'querySelector' returns the first element that is a descendant of the element on which it is invoked
+    that matches the specified group of selectors.*/
 
-// TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].textContent = "Mission Accomplished!";
-        console.log(subParagraphs[0])
-//     grabs the first instance of the 'sub-paragraph' class. Changes 'textContent' to "Mission Accomplished!".
+    // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+    const subParagraphs = document.getElementsByClassName('sub-paragraph');
+    // console.log(subParagraphs);
+    /*'getElementsByClassName' grabs all instances of the class 'sub-paragraph'
+     and sets it to the variable named 'subParagraphs'.*/
+
+    // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+    let mission = document.getElementById('Miss');
+    mission.addEventListener("click", function () {
+        subParagraphs[0].textContent = (subParagraphs[0].textContent !== "Mission Accomplished!") ? "Mission Accomplished!" : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto consequuntur, corporis dolorum et excepturi explicabo fuga fugiat illum impedit, ipsum itaque, maiores nemo officia officiis pariatur quod tempora unde?';
+    });
+    //     grabs the first instance of the 'sub-paragraph' class. Changes 'textContent' to "Mission Accomplished!".
 
 </script>
 </body>
