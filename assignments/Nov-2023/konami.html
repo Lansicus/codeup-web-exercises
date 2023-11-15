@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Konami Code</title>
+    <style>
+        #square {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: relative;
+            transition: transform 0.2s ease; /* Added CSS transition for smoother movement */
+        }
+        body {
+            border: 2px solid silver ;
+        }
+    </style>
+
+
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<div id="square"></div>
+
+<script>
+    "use strict";
+
+    let lives = 1
+
+
+
+    document.addEventListener("keydown", function (event) {
+        const square = document.getElementById('square');
+
+        let currentTop = parseFloat(square.style.top) || 0;
+        let currentLeft = parseFloat(square.style.left) || 0;
+
+        const step = 0.1; // Adjust the step size as needed
+
+        switch (event.key) {
+            case "ArrowUp":
+                currentTop = Math.max(0, currentTop - step * square.clientHeight);
+                break;
+            case "ArrowDown":
+                const maxBottom = document.body.clientHeight - square.clientHeight;
+                currentTop = Math.min(maxBottom, currentTop + step * square.clientHeight);
+                break;
+            case "ArrowLeft":
+                currentLeft = Math.max(0, currentLeft - step * square.clientWidth);
+                break;
+            case "ArrowRight":
+                const maxRight = document.body.clientWidth - square.clientWidth;
+                currentLeft = Math.min(maxRight, currentLeft + step * square.clientWidth);
+                break;
+            default:
+                return; // Do nothing if the pressed key is not an arrow key
+        }
+
+        square.style.transform = `translate(${currentLeft}px, ${currentTop}px)`;
+        square.style.top = `${currentTop}px`;
+        square.style.left = `${currentLeft}px`;
+    });
+
+
+
+
+
+    /*--------------------------------------------------- CHEAT CODES -----------------------------------------------*/
+    document.addEventListener("keyup", event => console.log(event.key) );
+
+    const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", "Enter"];
+    /* This line defines the Konami Code as an array of key strings.
+    Each string represents a key press in the sequence: Up, Up, Down, Down, Left, Right, Left, Right, B, A, Enter.
+     */
+    let konamiIndex = 0;
+/*This variable (konamiIndex) is used to keep track of the current position in the Konami Code sequence. It starts at 0.*/
+
+    document.addEventListener("keydown", function (event) {
+        //This line adds an event listener to the keydown event on the entire document.
+
+        if (event.key === konamiCode[konamiIndex]) {
+            /*This condition checks if the pressed key matches the key at the current position in the Konami Code sequence.*/
+
+            konamiIndex++;
+            /* If the key matches, the konamiIndex is incremented to move to the next position in the Konami Code. */
+
+            if (konamiIndex === konamiCode.length) {
+                lives += 30; alert(`You now have ${lives} lives!`);
+                // You can add additional actions here, such as changing the background or playing a sound.
+                // For example: document.body.style.backgroundColor = 'blue';
+                // Note: Uncomment and modify as needed.
+                konamiIndex = 0; // Reset the code index for the next input.
+                /*If the incremented index reaches the length of the Konami Code array,
+                it means the full sequence has been entered. An alert is displayed, and you can add additional actions
+                 for creative effects. The index is then reset for the next input.*/
+            }
+        } else {
+            konamiIndex = 0;
+            /* If the pressed key does not match the expected key in the sequence, the index is reset to 0. */
+        }
+    });
+</script>
+</body>
+</html>

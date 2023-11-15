@@ -10,6 +10,15 @@
         .grey-text {
             color: grey;
         }
+        .newFont {
+            font-family: "BM Hanna Pro", sans-serif;
+        }
+        .fontSize {
+            font-size: 18px;
+        }
+        .backgroundRed {
+            background-color: red;
+        }
 
         .btn {
             display: block;
@@ -42,15 +51,62 @@
 
 </p>
 
-<div>
     <button class="btn" id="headerBtn">Change Header</button>
     <button class="btn" id="subH">Change Sub-Header</button>
-    <button class="btn" id="listBtn">every other grey</button>
-    <button class="btn" id="list1">set li 1 to blue</button>
+<!--    <button class="btn" id="listBtn">every other grey</button>-->
+<!--    <button class="btn" id="list1">set li 1 to blue</button>-->
     <button class="btn" id="Miss">Mission accomplished?</button>
-</div>
+
+
 <script>
     "use strict";
+
+/*Add code that will change the background color of an h1 element when clicked.*/
+    let buttonsH1 = document.querySelectorAll('h1');
+    buttonsH1.forEach(function(button) {
+        button.addEventListener("click", function () {
+            buttonsH1.forEach(function(h1) {
+                h1.classList.toggle('backgroundRed');
+            });
+        });
+    });
+
+/*Make all paragraphs have a font size of 18px when they are double-clicked.*/
+    let buttonsP = document.querySelectorAll('p');
+    buttonsP.forEach(function(button) {
+        button.addEventListener("dblclick", function () {
+            buttonsP.forEach(function(p) {
+                p.classList.toggle('fontSize');
+            });
+        });
+    });
+
+/*Set all li text color to red when the mouse is hovering; reset to black when it is not.*/
+    // let hoverColor = document.querySelectorAll('li');
+    //
+    // for (let i = 0; i < hoverColor.length; i++) {
+    //     hoverColor[i].addEventListener('mouseenter', function() {
+    //         let currentElement = this;
+    //         currentElement.style.color = 'red';
+    //     });
+    //
+    //     hoverColor[i].addEventListener('mouseleave', function() {
+    //         let currentElement = this;
+    //         // Reset to default color
+    //         currentElement.style.color = 'black';
+    //     });
+    // }
+
+    let listItems = document.querySelectorAll("li")
+
+    for (let item of listItems) {
+        item.addEventListener("mouseenter", function () {
+            item.style.color = 'red'
+        })
+        item.addEventListener("mouseleave", function () {
+            item.style.color = 'black'
+        })
+    }
     // TODO: Uncomment next line and get the main header element by id
     //         const mainHeader = document.getElementById('main-header');
     // console.log(mainHeader);
@@ -61,7 +117,7 @@
     buttonMainH.addEventListener("click", function () {
         let mainHeader = document.getElementById('main-header');
         /* button function grabs the element with id 'main-header and associates it with 'mainHeader' variable.*/
-        mainHeader.textContent = (mainHeader.textContent === "Hello World!") ? "JavaScript is Cool" : "Hello World!";
+        mainHeader.textContent = (mainHeader.textContent === "Hello World!") ? mainHeader.textContent = 'JavaScript is cool!' : mainHeader.textContent = 'Hello World!';
     });/*When the button is clicked if mainHeader content equals 'Hello World!' then "JavaScript is Cool"
         will be the new text. Otherwise, the text will say "Hello World!" if clicked. "*/
 
@@ -74,6 +130,7 @@
     buttonSubH.addEventListener("click", function () {
         // Toggle the 'blue-text' class for the sub-header
         document.getElementById('sub-header').classList.toggle('blue-text');
+        document.body.classList.toggle('newFont');
     });
     //         subHeader.style.color = 'blue';
     //         console.log(subHeader);
@@ -121,6 +178,27 @@
         subParagraphs[0].textContent = (subParagraphs[0].textContent !== "Mission Accomplished!") ? "Mission Accomplished!" : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto consequuntur, corporis dolorum et excepturi explicabo fuga fugiat illum impedit, ipsum itaque, maiores nemo officia officiis pariatur quod tempora unde?';
     });
     //     grabs the first instance of the 'sub-paragraph' class. Changes 'textContent' to "Mission Accomplished!".
+
+
+
+
+
+    /*---------------------------------------------- BUTTON MOVEMENT -------------------------------------------------*/
+
+    let hoverElements = document.getElementsByClassName('btn');
+
+    for (let i = 0; i < hoverElements.length; i++) {
+        hoverElements[i].addEventListener('mouseenter', function() {
+            let currentElement = this;
+            currentElement.style.transform = 'translate(3px, -3px)';
+        });
+
+        hoverElements[i].addEventListener('mouseleave', function() {
+            let currentElement = this;
+            // Reset to default position
+            currentElement.style.transform = 'translate(0, 0)';
+        });
+    }
 
 </script>
 </body>
