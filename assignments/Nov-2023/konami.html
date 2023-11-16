@@ -6,7 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Konami Code</title>
+
     <style>
+        body {
+            border: 2px solid silver;
+            height: 800px;
+        }
+
         #square {
             width: 50px;
             height: 50px;
@@ -14,23 +20,32 @@
             position: relative;
             transition: transform 0.2s ease; /* Added CSS transition for smoother movement */
         }
-        body {
-            border: 2px solid silver ;
+
+        #heart {
+            display: inline-block;
+            width: 40px;
+            aspect-ratio: 1;
+            border-image: radial-gradient(red 69%, #0000 70%) 84.5%/50%;
+            clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+            text-align: center;
+            font-size: 150%;
+            position: absolute;
         }
+
+
     </style>
 
 
 </head>
 <body>
-<h1>Konami Code</h1>
-
+<h1 style="display: inline-block; position: relative">Konami Code</h1>
+<div id="heart">1</div>
 <div id="square"></div>
 
 <script>
     "use strict";
 
-    let lives = 1
-
+    let lives = document.getElementById("heart");
 
 
     document.addEventListener("keydown", function (event) {
@@ -66,18 +81,15 @@
     });
 
 
-
-
-
     /*--------------------------------------------------- CHEAT CODES -----------------------------------------------*/
-    document.addEventListener("keyup", event => console.log(event.key) );
+    document.addEventListener("keyup", event => console.log(event.key));
 
     const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", "Enter"];
     /* This line defines the Konami Code as an array of key strings.
     Each string represents a key press in the sequence: Up, Up, Down, Down, Left, Right, Left, Right, B, A, Enter.
      */
     let konamiIndex = 0;
-/*This variable (konamiIndex) is used to keep track of the current position in the Konami Code sequence. It starts at 0.*/
+    /*This variable (konamiIndex) is used to keep track of the current position in the Konami Code sequence. It starts at 0.*/
 
     document.addEventListener("keydown", function (event) {
         //This line adds an event listener to the keydown event on the entire document.
@@ -89,7 +101,10 @@
             /* If the key matches, the konamiIndex is incremented to move to the next position in the Konami Code. */
 
             if (konamiIndex === konamiCode.length) {
-                lives += 30; alert(`You now have ${lives} lives!`);
+                // Example: decrease lives
+                lives.innerText = parseInt(lives.innerText) + 30;
+                alert(`You now have ${lives.innerText} lives!`);
+                // lives += 30;
                 // You can add additional actions here, such as changing the background or playing a sound.
                 // For example: document.body.style.backgroundColor = 'blue';
                 // Note: Uncomment and modify as needed.
