@@ -3,11 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Parks</title>
+    <style>
 
+        /*Button classes --------------------------------*/
+        .yellow-text {
+            color: yellow;
+        }
+
+        .blue-text {
+            color: blue;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        /*DL, DT, DD TAGS LIST DATA ---------------------*/
+        dl {
+            display: grid;
+            grid-template-columns: auto auto;
+            border: 1px solid #ccc;
+            gap: 10px;
+        }
+
+        dt, dd {
+            margin: 0; /* Remove default margins */
+            padding: 5px;
+        }
+        dt {
+            background-color: #32c204;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        dd {
+            background-color: #1c75fa;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
 </head>
 <body>
 
-<h1>National Parks FAQ</h1>
+<h1><u>National Parks FAQ</u></h1>
+<!--Under the FAQ, add 3 unordered lists like above. Each list should contain a national park name in an-->
+<!--h3 element, and a ul of 4 facts about the park.-->
+<br>
+<h3>Guadalupe Mountains</h3>
+<ul>
+    <li>is in the vast Chihuahuan Desert of western Texas.</li>
+    <li> It’s known for its bright-white Salt Basin Dunes, wildlife-rich grassland and fossilized reef mountains.</li>
+    <li>The Guadalupe Peak Trail weaves up through a conifer forest to the state’s highest summit, with views of the
+        rocky El Capitan peak to the south.
+    </li>
+    <li>In the north, the McKittrick Canyon Trail is known for its colorful fall foliage.</li>
+</ul>
+
+<h3>Zion</h3>
+<ul>
+    <li>a southwest Utah nature preserve distinguished by Zion Canyon’s steep red cliffs.</li>
+    <li>Zion Canyon Scenic Drive cuts through its main section, leading to forest trails along the Virgin River.</li>
+    <li>The river flows to the Emerald Pools, which have waterfalls and a hanging garden.</li>
+    <li>Also along the river, partly through deep chasms, is Zion Narrows wading hike.</li>
+</ul>
+
+<h3>Big Bend</h3>
+<ul>
+    <li>Big Bend National Park is in southwest Texas and includes the entire Chisos mountain range and a large swath of
+        the Chihuahuan Desert.
+    </li>
+    <li>The Ross Maxwell Scenic Drive leads to the ruins of Sam Nail Ranch, now home to desert wildlife.</li>
+    <li>The Santa Elena Canyon, carved by the Rio Grande, features steep limestone cliffs.</li>
+    <li>Langford Hot Springs, near the Mexican border, has pictographs and the foundations of an old bathhouse.</li>
+</ul>
+<br>
+<button id="lastLiYellow">Last of list yellow</button>
+<br>
+<hr>
+<br>
+<br>
+<h1 style="display: flex; justify-content: center">FAQs and Answers</h1>
 
 <dl>
     <dt>How many people visit the national parks?</dt>
@@ -20,10 +97,14 @@
     <dd>Permanent, temporary, and seasonal employees: More than 20,000</dd>
 
     <dt>What is the origin of the National Park Service arrowhead?</dt>
-    <dd>The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on July 20, 1951.</dd>
+    <dd>The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on
+        July 20, 1951.
+    </dd>
 
     <dt>How many areas are in the National Park System?</dt>
-    <dd>The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands.</dd>
+    <dd>The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia,
+        American Samoa, Guam, Puerto Rico, and the Virgin Islands.
+    </dd>
 
     <dt>What is the largest national park site?</dt>
     <dd>Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres.</dd>
@@ -32,14 +113,76 @@
     <dd>Fiscal Year (FY) 2014 Enacted: $2.98 billion.</dd>
 
     <dt>Can I bring my pet to a national park?</dt>
-    <dd>Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities.</dd>
+    <dd>Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging
+        facilities.
+    </dd>
 
     <dt>How do I apply for a job with the National Park Service?</dt>
     <dd>National Park Service jobs, including both permanent and seasonal positions, are listed on USAJOBs.</dd>
 
     <dt>What do I need to know about driving off road in national parks?</dt>
-    <dd>Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.</dd>
+    <dd>Before you head out, check with the national parks that you intend to visit. In many national parks, off-road
+        driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.
+    </dd>
 </dl>
+
+<script>
+    // Create a button that, when clicked, makes the last li in each ul have a yellow background.
+
+    let buttonYellow = document.getElementById("lastLiYellow");
+    buttonYellow.addEventListener("click", function () {
+        // Toggle the 'yellow-text' class for the last li of each ul
+        document.querySelectorAll('ul li:last-child').forEach(function (li) {
+            li.classList.toggle('yellow-text');
+        });
+    });
+
+    /*When any h3 is clicked, the lis underneath it should have a fontWeight of "bold". Hint: you should use this
+     in the event listener to access the next sibling of the h3 that is clicked. You can get to the corresponding ul by
+      traversing to the h3's sibling and then it's children.*/
+
+    // Select all h3 elements on the page
+    let h3Elements = document.querySelectorAll('h3');
+
+    // Iterate over each h3 element using forEach
+    h3Elements.forEach(h3 => {
+        // Add a click event listener to each h3 element
+        h3.addEventListener("click", function () {
+            // Select all li elements that are direct children of the next sibling of the clicked h3
+            let lis = this.nextElementSibling.querySelectorAll('li');
+
+            // Iterate over each li element using forEach
+            lis.forEach(li => {
+                // Toggle the 'font-bold' class for each li element
+                li.classList.toggle('font-bold');
+            });
+        });
+    });
+
+    /*When any list item is clicked, the first li of that list item's parent ul should have a font color of blue.
+     Hint: you should again rely on this in the li event handler.*/
+
+    // Select all li elements on the page
+    let liElements = document.querySelectorAll('li');
+
+    // Iterate over each li element using forEach
+    liElements.forEach(li => {
+        // Add a click event listener to each li element
+        li.addEventListener("click", function () {
+            // Select the parent ul of the clicked li
+            let parentUl = this.parentElement;
+
+            // Select the first li child of the parent ul
+            let firstLi = parentUl.querySelector('li');
+
+            // Toggle the 'font-blue' class for the first li child
+            firstLi.classList.toggle('blue-text');
+        });
+    });
+
+
+</script>
+
 
 </body>
 </html>
