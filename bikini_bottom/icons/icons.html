@@ -3,14 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magnifying Glass Icon</title>
-    <link rel="stylesheet" href="icons.css">
+    <style>
+        /* Style for the picture frames */
+        .frame {
+            width: 300px;
+            height: 200px;
+            border: 5px solid black;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Style for the buttons */
+        button {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Picture Frames</title>
 </head>
-
-
 <body>
-<div class="magnifying-glass">
-    <div class="handle"></div>
+
+
+ Left Picture Frame
+<div class="pic-container" id="leftFrame"
+     style="background-image: url('https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Patrick-Star.SpongeBob-SquarePants.webp');">
+    <button onclick="swapLeftAndCenter()">Swap w/ middle Photo</button>
 </div>
+
+<!-- Center Picture Frame -->
+<div class="pic-container" id="centerFrame"
+     style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5AoAIHAbKGGHMo4xPJMcH2W8nScr-c-B7A&usqp=CAU');">
+    <button onclick="swapCenter()">Swap w/ either Photo</button>
+</div>
+
+<!-- Right Picture Frame -->
+<div class="pic-container" id="rightFrame"
+     style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZb7kITdgRspHbCX9SWczOS-pKOt05-4SL7A&usqp=CAU');">
+    <button onclick="swapRightAndCenter()">Swap w/ middle Photo</button>
+</div>
+
+<script>
+
+    // Function to swap left and center images
+    function swapLeftAndCenter() {
+        const leftImage = document.getElementById('leftFrame').style.backgroundImage;
+        document.getElementById('leftFrame').style.backgroundImage = document.getElementById('centerFrame').style.backgroundImage;
+        document.getElementById('centerFrame').style.backgroundImage = leftImage;
+    }
+
+    // Function to swap center image randomly with either left or right image
+    function swapCenter() {
+        const centerImage = document.getElementById('centerFrame').style.backgroundImage;
+        const randomFrame = Math.random() < 0.5 ? 'leftFrame' : 'rightFrame';
+        document.getElementById('centerFrame').style.backgroundImage = document.getElementById(randomFrame).style.backgroundImage;
+        document.getElementById(randomFrame).style.backgroundImage = centerImage;
+    }
+
+    // Function to swap right and center images
+    function swapRightAndCenter() {
+        const rightImage = document.getElementById('rightFrame').style.backgroundImage;
+        document.getElementById('rightFrame').style.backgroundImage = document.getElementById('centerFrame').style.backgroundImage;
+        document.getElementById('centerFrame').style.backgroundImage = rightImage;
+    }
+</script>
+
 </body>
 </html>

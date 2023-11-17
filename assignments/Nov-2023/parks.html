@@ -5,6 +5,22 @@
     <title>Parks</title>
     <style>
 
+        * {
+            color: #f5d9ae;
+            /* Example text with a 2px solid outline in #555555 color */
+            text-shadow: -1px -1px 0 #555555,
+            1px -1px 0 #555555,
+            -1px 1px 0 #555555,
+            1px 1px 0 #555555;
+        }
+
+        /*Our National Parks*/
+        .natty {
+            border: 10px double #aa0cea;
+            border-radius: 50%;
+            background-color: rgba(170, 12, 234, 0.6);
+        }
+
         /*Button classes --------------------------------*/
         .yellow-text {
             color: yellow;
@@ -22,69 +38,142 @@
         dl {
             display: grid;
             grid-template-columns: auto auto;
-            border: 1px solid #ccc;
+            /*border: 1px solid #ccc;*/
             gap: 10px;
         }
 
         dt, dd {
             margin: 0; /* Remove default margins */
-            padding: 5px;
+            padding: 20px;
+            border: white solid 3px;
         }
+
         dt {
-            background-color: #32c204;
-            border-radius: 50px;
-            display: flex;
-            justify-content: center;
-        }
-        dd {
-            background-color: #1c75fa;
+            background-color: rgba(50, 194, 4, 0.62);
             border-radius: 50px;
             display: flex;
             justify-content: center;
         }
 
+        dd {
+            width: 70%;
+            background-color: rgba(28, 117, 250, 0.68);
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pic-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button {
+            background-color: #8b0019;
+            border: 2px double #555555;
+            border-radius: 5px;
+            margin: 60px 60px;
+            font-size: large;
+            font-family: cursive, sans-serif;
+        }
+
+        img {
+            border: 20px groove saddlebrown;
+            width: 180px;
+            height: 100px;
+            margin: 15px 20px;
+
+        }
     </style>
 </head>
-<body>
+<!--************************************************************************************** HTML CONTENT *************-->
 
-<h1><u>National Parks FAQ</u></h1>
-<!--Under the FAQ, add 3 unordered lists like above. Each list should contain a national park name in an-->
-<!--h3 element, and a ul of 4 facts about the park.-->
-<br>
-<h3>Guadalupe Mountains</h3>
-<ul>
-    <li>is in the vast Chihuahuan Desert of western Texas.</li>
-    <li> It’s known for its bright-white Salt Basin Dunes, wildlife-rich grassland and fossilized reef mountains.</li>
-    <li>The Guadalupe Peak Trail weaves up through a conifer forest to the state’s highest summit, with views of the
-        rocky El Capitan peak to the south.
-    </li>
-    <li>In the north, the McKittrick Canyon Trail is known for its colorful fall foliage.</li>
-</ul>
+<!--Bonus-->
+<!--Create 3 divs that each look like a picture frame. Each one should have a unique background image and-->
+<!--a button underneath that swaps the image from the frame. Use traversing properties to accomplish this.-->
 
-<h3>Zion</h3>
-<ul>
-    <li>a southwest Utah nature preserve distinguished by Zion Canyon’s steep red cliffs.</li>
-    <li>Zion Canyon Scenic Drive cuts through its main section, leading to forest trails along the Virgin River.</li>
-    <li>The river flows to the Emerald Pools, which have waterfalls and a hanging garden.</li>
-    <li>Also along the river, partly through deep chasms, is Zion Narrows wading hike.</li>
-</ul>
+<!--The rules are the following:-->
 
-<h3>Big Bend</h3>
-<ul>
-    <li>Big Bend National Park is in southwest Texas and includes the entire Chisos mountain range and a large swath of
-        the Chihuahuan Desert.
-    </li>
-    <li>The Ross Maxwell Scenic Drive leads to the ruins of Sam Nail Ranch, now home to desert wildlife.</li>
-    <li>The Santa Elena Canyon, carved by the Rio Grande, features steep limestone cliffs.</li>
-    <li>Langford Hot Springs, near the Mexican border, has pictographs and the foundations of an old bathhouse.</li>
-</ul>
+<!--When the left picture's button is clicked, the left and center pictures swap images.-->
+<!--When the center picture's button is clicked, the center picture swaps randomly with either the left OR right pictures.-->
+<!--When the right picture's button is clicked, the right and center pictures swap images.-->
+<!--Hint: swap the values of the images' src attributes.-->
+
+<body style="padding: 40px; background-image: url('https://i.pinimg.com/originals/06/61/33/066133dfed78797ab90a7a6d45785089.jpg'); background-size: cover;">
+
+
+<!--******************************************************************************** Our National Parks *************-->
+<div style="display: inline-block;">
+    <h1><u class="natty">Our National Parks</u></h1>
+    <!--Under the FAQ, add 3 unordered lists like above. Each list should contain a national park name in an-->
+    <!--h3 element, and a ul of 4 facts about the park.-->
+    <br>
+    <h3>Guadalupe Mountains</h3>
+    <ul>
+        <li>Native to the vast Chihuahuan Desert of western Texas.</li>
+        <li> It’s known for its bright-white Salt Basin Dunes, wildlife-rich grassland and fossilized reef mountains.
+        </li>
+        <li>The Guadalupe Peak Trail weaves up through a conifer forest to the state’s highest summit, with views of the
+            rocky El Capitan peak to the south.
+        </li>
+        <li>In the north, the McKittrick Canyon Trail is known for its colorful fall foliage.</li>
+    </ul>
+    <br>
+    <h3>Zion</h3>
+    <ul>
+        <li>a southwest Utah nature preserve distinguished by Zion Canyon’s steep red cliffs.</li>
+        <li>Zion Canyon Scenic Drive cuts through its main section, leading to forest trails along the Virgin River.
+        </li>
+        <li>The river flows to the Emerald Pools, which have waterfalls and a hanging garden.</li>
+        <li>Also along the river, partly through deep chasms, is Zion Narrows wading hike.</li>
+    </ul>
+    <br>
+    <h3>Big Bend</h3>
+    <ul>
+        <li>Big Bend National Park is in southwest Texas and includes the entire Chisos mountain range and a large swath
+            of
+            the Chihuahuan Desert.
+        </li>
+        <li>The Ross Maxwell Scenic Drive leads to the ruins of Sam Nail Ranch, now home to desert wildlife.</li>
+        <li>The Santa Elena Canyon, carved by the Rio Grande, features steep limestone cliffs.</li>
+        <li>Langford Hot Springs, near the Mexican border, has pictographs and the foundations of an old bathhouse.</li>
+    </ul>
+    <br>
+    <br>
+    <button id="lastLiYellow">Last of list yellow</button>
+    <br>
+</div>
+
+<!--********************************************************************** IMAGE CONTAINERS AND BUTTONS *************-->
+<div style="display: inline-block;">
+    <div id="pic1" class="pic-container">
+        <img src="https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Patrick-Star.SpongeBob-SquarePants.webp"
+             alt="">
+        <button id="button1" onclick="swapImages('pic1', 'pic2')">Swap w/ middle Photo</button>
+    </div>
+
+    <div id="pic2" class="pic-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5AoAIHAbKGGHMo4xPJMcH2W8nScr-c-B7A&usqp=CAU"
+             alt="">
+        <button id="button2" onclick="swapImages('pic2', 'pic1', 'pic3')">Swap w/ either Photo</button>
+    </div>
+
+    <div id="pic3" class="pic-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZb7kITdgRspHbCX9SWczOS-pKOt05-4SL7A&usqp=CAU"
+             alt="">
+        <button id="button3" onclick="swapImages('pic3', 'pic2')">Swap w/ middle Photo</button>
+    </div>
+</div>
+
+<!--******************************************************************************* FAQ's AND BEYOND ****************-->
+<!--<hr>-->
+<!--<hr>-->
+<!--<hr>-->
+
 <br>
-<button id="lastLiYellow">Last of list yellow</button>
 <br>
-<hr>
+<h1 style="display: flex; justify-content: center"><u>FAQs and Answers</u></h1>
 <br>
-<br>
-<h1 style="display: flex; justify-content: center">FAQs and Answers</h1>
 
 <dl>
     <dt>How many people visit the national parks?</dt>
@@ -126,13 +215,21 @@
     </dd>
 </dl>
 
+<!--************************************************************************************* JAVASCRIPT ****************-->
 <script>
     // Create a button that, when clicked, makes the last li in each ul have a yellow background.
 
-    let buttonYellow = document.getElementById("lastLiYellow");
-    buttonYellow.addEventListener("click", function () {
-        // Toggle the 'yellow-text' class for the last li of each ul
-        document.querySelectorAll('ul li:last-child').forEach(function (li) {
+    // let buttonYellow = document.getElementById("lastLiYellow");
+    // buttonYellow.addEventListener("click", function () {
+    //     // Toggle the 'yellow-text' class for the last li of each ul
+    //     document.querySelectorAll('ul li:last-child').forEach(function (li) {
+    //         li.classList.toggle('yellow-text');
+    //     });
+    // });
+    // ALTERNATIVE ----------------------------
+    // turn the last li yellow on button click
+    document.getElementById("lastLiYellow").addEventListener('click', () => {
+        document.querySelectorAll("ul li:last-child").forEach(li => {
             li.classList.toggle('yellow-text');
         });
     });
@@ -142,20 +239,27 @@
       traversing to the h3's sibling and then it's children.*/
 
     // Select all h3 elements on the page
-    let h3Elements = document.querySelectorAll('h3');
-
-    // Iterate over each h3 element using forEach
-    h3Elements.forEach(h3 => {
-        // Add a click event listener to each h3 element
-        h3.addEventListener("click", function () {
-            // Select all li elements that are direct children of the next sibling of the clicked h3
-            let lis = this.nextElementSibling.querySelectorAll('li');
-
-            // Iterate over each li element using forEach
-            lis.forEach(li => {
-                // Toggle the 'font-bold' class for each li element
-                li.classList.toggle('font-bold');
-            });
+    // let h3Elements = document.querySelectorAll('h3');
+    //
+    // // Iterate over each h3 element using forEach
+    // h3Elements.forEach(h3 => {
+    //     // Add a click event listener to each h3 element
+    //     h3.addEventListener("click", function () {
+    //         // Select all li elements that are direct children of the next sibling of the clicked h3
+    //         let lis = this.nextElementSibling.querySelectorAll('li');
+    //
+    //         // Iterate over each li element using forEach
+    //         lis.forEach(li => {
+    //             // Toggle the 'font-bold' class for each li element
+    //             li.classList.toggle('font-bold');
+    //         });
+    //     });
+    // });
+    // ALTERNATIVE ----------------------------
+    // turn the li under an h3 bold when h3 is clicked
+    document.querySelectorAll("h3").forEach(h3 => {
+        h3.addEventListener('click', () => {
+            h3.nextElementSibling.classList.toggle('font-bold')
         });
     });
 
@@ -163,25 +267,53 @@
      Hint: you should again rely on this in the li event handler.*/
 
     // Select all li elements on the page
-    let liElements = document.querySelectorAll('li');
+    // let liElements = document.querySelectorAll('li');
+    //
+    // // Iterate over each li element using forEach
+    // liElements.forEach(li => {
+    //     // Add a click event listener to each li element
+    //     li.addEventListener("click", function () {
+    //         // Select the parent ul of the clicked li
+    //         let parentUl = this.parentElement;
+    //
+    //         // Select the first li child of the parent ul
+    //         let firstLi = parentUl.querySelector('li');
+    //
+    //         // Toggle the 'font-blue' class for the first li child
+    //         firstLi.classList.toggle('blue-text');
+    //     });
+    // });
+    // ALTERNATIVE ----------------------------
+    //     turn the first li of any ul blue when a li in that list is clicked
+    document.querySelectorAll("li").forEach(li => {
+        li.addEventListener('click', () => {
+            li.parentElement.firstElementChild.classList.toggle('blue-text')
+        })
+    })
 
-    // Iterate over each li element using forEach
-    liElements.forEach(li => {
-        // Add a click event listener to each li element
-        li.addEventListener("click", function () {
-            // Select the parent ul of the clicked li
-            let parentUl = this.parentElement;
+    /*----------------------------------------------------------------------------------- BONUS TIME -----------------*/
 
-            // Select the first li child of the parent ul
-            let firstLi = parentUl.querySelector('li');
+    // Function to swap the image of the current frame with either targetFrame1 or targetFrame2
+    function swapImages(currentFrameId, targetFrame1Id, targetFrame2Id) {
+        // Get references to the current frame and the two target frames
+        const currentFrame = document.getElementById(currentFrameId);
+        const targetFrame1 = document.getElementById(targetFrame1Id);
+        const targetFrame2 = document.getElementById(targetFrame2Id);
 
-            // Toggle the 'font-blue' class for the first li child
-            firstLi.classList.toggle('blue-text');
-        });
-    });
+        // Get the source of the image in the current frame
+        const currentImage = currentFrame.querySelector('img').src;
 
+        // Randomly choose between targetFrame1 and targetFrame2
+        const randomTarget = Math.random() < 0.5 ? targetFrame1 : targetFrame2;
+
+        // Get the source of the image in the randomly chosen target frame
+        // Swap the images between the current frame and the randomly chosen target frame
+        currentFrame.querySelector('img').src = randomTarget.querySelector('img').src;
+        randomTarget.querySelector('img').src = currentImage;
+    }
 
 </script>
+
 
 
 </body>
