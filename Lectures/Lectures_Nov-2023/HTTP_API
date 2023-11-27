@@ -1,0 +1,124 @@
+
+
+
+1. HTTP (Hypertext Transfer Protocol)
+Overview:
+
+Definition: HTTP is the foundation of data communication on the World Wide Web.
+
+Communication Rules: Defines rules for formatting and transmitting messages (requests and responses) between web browsers and servers.
+
+Purpose: Enables the retrieval of web pages and facilitates data exchange on the internet.
+
+Example Interaction:
+When a user wants to view a web page, their browser (client) sends an HTTP request to the server (remote computer) hosting the content.
+The server responds with an HTTP response, providing requested data or indicating an error.
+HTTP Methods:
+
+GET:
+Purpose: Retrieve data from the server.
+Example: Fetching a webpage, retrieving data from a server.
+http
+
+
+EXAMPLE:
+GET /example-page HTTP/1.1
+Host: www.example.com
+POST:
+Purpose: Submit data to be processed to a specified resource.
+Example: Submitting a form, uploading a file.
+http
+
+
+EXAMPLE:
+POST /submit-form HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+
+username=johndoe&password=secret
+PUT:
+Purpose: Update a resource or create a new one if it doesn't exist.
+Example: Updating a user's profile, uploading a resource to a specific URL.
+http
+
+
+EXAMPLE:
+PUT /update-profile HTTP/1.1
+Host: www.example.com
+Content-Type: application/json
+
+{ "name": "John Doe", "age": 30 }
+PATCH:
+Purpose: Apply partial modifications to a resource.
+Example: Updating specific fields of an existing resource.
+http
+
+
+EXAMPLE:
+PATCH /update-details HTTP/1.1
+Host: www.example.com
+Content-Type: application/json
+
+{ "age": 31 }
+
+DELETE:
+Purpose: Remove or delete.
+Example: Removing a file, deleting a user account.
+http
+
+
+EXAMPLE:
+DELETE /delete-account HTTP/1.1
+Host: www.example.com
+2. API (Application Programming Interface)
+Overview:
+
+Definition: API stands for "Application Programming Interface," describing software design.
+Communication: Provides instructions for programmers to interact with and retrieve data from applications.
+HTTP Implementation: APIs can use HTTP as a communication protocol, defining endpoints (URLs) and data request/response rules.
+Variety: APIs exist for various purposes (weather, maps, stocks, etc.) and may be free or have different pricing tiers.
+    List of Free APIs: https://github.com/public-apis/public-apis
+API Data:
+
+Data Exchange: An API receives scripted requests and sends responses, commonly in XML or JSON formats.
+
+XML (eXtensible Markup Language):
+Granddaddy of serialized data formats, based on HTML.
+Less common, bulkier, and less readable than JSON.
+xml
+    EXAMPLE:
+    <users>
+      <user id="23">
+        <name><![CDATA[Bob]]></name>
+      </user>
+      <user id="72">
+        <name><![CDATA[Tim]]></name>
+      </user>
+    </users>
+
+
+JSON (JavaScript Object Notation):
+Lightweight, easy-to-read, and quick to parse.
+Universal standard for web data exchange.
+Based on JavaScript Object syntax.
+json
+    EXAMPLE:
+    {
+      "users": [{ "name": "Bob", "id": 23 }, { "name": "Tim", "id": 72 }],
+      "content": "This is a piece of content"
+    }
+
+
+3. AJAX (Asynchronous JavaScript and XML)
+Overview:
+
+Concept: AJAX enables communication with a server, sending or retrieving data without refreshing the current webpage.
+HTTP Usage: Utilizes HTTP to send requests to APIs, retrieving data in various formats (not limited to XML).
+Historical Context:
+Addresses early internet challenges where page refreshes were necessary for data updates.
+AJAX allows asynchronous requests, avoiding full page reloads and enhancing user experience.
+Simpler Terms:
+HTTP: Protocol for web communication.
+API: Rules for software interaction, often via HTTP.
+AJAX: Technique using JavaScript and HTTP for dynamic requests without full page reloads.
+These concepts collectively form the backbone of web communication, enabling seamless data exchange and dynamic content updates.
