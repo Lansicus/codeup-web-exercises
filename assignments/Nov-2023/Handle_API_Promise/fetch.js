@@ -1,19 +1,25 @@
 /*GO HERE FOR MORE TOKENS https://github.com/settings/tokens/new
-THIS TOKEN WILL NOT WORK AFTER DEC, 27, 2023*/
+THIS TOKEN WILL NOT WORK AFTER DEC, 27, 2023
+
+https://api.github.com/users/Lansicus/events*/
 
 
 /*Create a function that accepts a GitHub username, and returns a promise that resolves returning just the date of
  the last commit that user made. Reference the GitHub api documentation to achieve this.*/
-function getLastCommitDate(username) {
+function getLastCommitDate(username, token) {
     // GitHub API URL for user events
     const GITHUB_API_URL = `https://api.github.com/users/${username}/events`;
 
     // Return a new Promise
     return new Promise((resolve, reject) => {
-        // Fetch data from the GitHub API
-        fetch(GITHUB_API_URL)
+        // Fetch data from the GitHub API with the Authorization header
+        fetch(GITHUB_API_URL, {
+            headers: {
+                'Authorization': `token ${token}`
+            }
+        })
             .then(response => {
-                // Checks if the response is successful. if not will 'throw' custom error response.
+                // Checks if the response is successful. If not, throw a custom error response.
                 if (!response.ok) {
                     throw new Error(`Failed to fetch data. Status: ${response.status}`);
                 }
@@ -42,27 +48,24 @@ function getLastCommitDate(username) {
     });
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("searchForm").addEventListener("submit", function (e) {
         e.preventDefault(); // Prevent the form from submitting and page reload
 
-        let username = document.getElementById("searchBar").value;
+        let user = document.getElementById("searchBar").value;
 
-        getLastCommitDate(username)
+        getLastCommitDate(user, GITHUB_API_KEY)
             .then(lastCommitDate => {
-                alert(`Last commit date for ${username}: ${lastCommitDate}`);
+                alert(`Last commit date for ${user}: ${lastCommitDate}`);
             })
             .catch(error => {
                 console.error(error.message);
             });
         // Reset the input field value to an empty string
-        document.getElementById("searchBar").value = "";    });
+        document.getElementById("searchBar").value = "";
+    });
 });
-
-
-
-
-
 
 
 /*---------------------------------------------------------------------------------------------------- EXAMPLE -------*/
