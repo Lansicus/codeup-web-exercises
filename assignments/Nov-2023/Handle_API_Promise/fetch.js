@@ -13,7 +13,7 @@ function getLastCommitDate(username) {
         // Fetch data from the GitHub API
         fetch(GITHUB_API_URL)
             .then(response => {
-                // Check if the response is successful
+                // Checks if the response is successful. if not will 'throw' custom error response.
                 if (!response.ok) {
                     throw new Error(`Failed to fetch data. Status: ${response.status}`);
                 }
@@ -26,7 +26,7 @@ function getLastCommitDate(username) {
 
                 // Check if there are any push events
                 if (pushEvents.length > 0) {
-                    // Get the date of the first push event
+                    // Get the date of the first (which is the latest) push event
                     const lastCommitDate = new Date(pushEvents[0].created_at);
                     // Resolve the promise with the formatted date string
                     resolve(lastCommitDate.toDateString());
@@ -42,14 +42,22 @@ function getLastCommitDate(username) {
     });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("searchForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the form from submitting and page reload
 
-getLastCommitDate(GITHUB_USERNAME)
-    .then(lastCommitDate => {
-        console.log(`Last commit date for ${GITHUB_USERNAME}: ${lastCommitDate}`);
-    })
-    .catch(error => {
-        console.error(error.message);
-    });
+        let username = document.getElementById("searchBar").value;
+
+        getLastCommitDate(username)
+            .then(lastCommitDate => {
+                alert(`Last commit date for ${username}: ${lastCommitDate}`);
+            })
+            .catch(error => {
+                console.error(error.message);
+            });
+        // Reset the input field value to an empty string
+        document.getElementById("searchBar").value = "";    });
+});
 
 
 

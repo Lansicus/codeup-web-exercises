@@ -1,23 +1,76 @@
 
+// **************************************   Daly Warm-Ups Nov, 28, 2023   ***************************************
+
+function createPokemonElements(data) {
+    // console.log(data.name)
+    const mainHeader = document.createElement("h1");
+    mainHeader.innerHTML = `No. \t&nbsp;${data.id}\t&nbsp;\t&nbsp;${data.name.charAt(0).toUpperCase()}${data.name.slice(1)}`;
+    let container = document.getElementById("pokedex");
+    container.appendChild(mainHeader)
+
+    //     image
+    const image = document.createElement("img");
+    image.src = data.sprites.front_default;
+    container.appendChild(image);
+    image.style.height = "200px";
+}
+
+let pokeData = document.getElementById("pokeData")
+
+
+function onFail(error) {
+    console.log("Error", error)
+}
+
+
+
+let searchFrom = document.querySelector("#searchForm");
+
+searchFrom.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let input = document.querySelector("#searchBar").value
+    // console.log(input)
+
+    fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
+        .then(res => res.json())
+
+        .then(data => createPokemonElements(data))
+        .catch(onFail)
+})
+function processBooks(book) {
+    for(let i = 0; i < book.length; i++) {
+        document.querySelector(".books").innerText += ` ${book[i].title} \n`;
+    }
+}
+
+
+fetch("data/data.json")
+    .then(res => res.json())
+    .then(data => processBooks(data))
+
+
+
+
+
 
 // **************************************   Daly Warm-Ups Nov, 6, 2023   ***************************************
 /* Write a program that prints all numbers from 1-100. For multiples of 3: print "Fizz".
 For multiples of 5 print "Buzz". for numbers that are multiples of both 3 and 5, print "FizzBuzz".
  */
-function oneToX(numbah) {
-    for (let i = 1; i <= numbah; i++)
-        if ( i % 3 === 0 && i % 5 === 0){
-            console.log(`FizzBuzz, ${i} `)
-        }
-        else if (i % 3 === 0) {
-            console.log(`Fizz, ${i}`)
-        }
-        else if (i % 5 === 0) {
-            console.log(`Buzz, ${i}`)
-        }
-        else {console.log(`number, ${i}`)}
-}
-oneToX(100)
+// function oneToX(numbah) {
+//     for (let i = 1; i <= numbah; i++)
+//         if ( i % 3 === 0 && i % 5 === 0){
+//             console.log(`FizzBuzz, ${i} `)
+//         }
+//         else if (i % 3 === 0) {
+//             console.log(`Fizz, ${i}`)
+//         }
+//         else if (i % 5 === 0) {
+//             console.log(`Buzz, ${i}`)
+//         }
+//         else {console.log(`number, ${i}`)}
+// }
+// oneToX(100)
 
 
 
