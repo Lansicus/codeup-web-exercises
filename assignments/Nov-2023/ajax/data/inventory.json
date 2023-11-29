@@ -1,13 +1,13 @@
 [
     {
-        "title": "Hammer",
+        "itemName": "Hammer",
         "quantity": 25,
         "categories": [
             "tool"
         ],
         "price": 20
     }, {
-        "title": "Drill",
+        "itemName": "Drill",
         "quantity": 5,
         "categories": [
             "tool",
@@ -15,7 +15,7 @@
         ],
         "price": 100
     }, {
-        "title": "Mower",
+        "itemName": "Mower",
         "quantity": 5,
         "categories": [
             "tool",
@@ -24,21 +24,21 @@
         ],
         "price": 200
     }, {
-        "title": "Screwdrivers",
+        "itemName": "Screwdrivers",
         "quantity": 25,
         "categories": [
             "tool"
         ],
         "price": 10
     }, {
-        "title": "saws",
+        "itemName": "saws",
         "quantity": 13,
         "categories": [
             "tool"
         ],
         "price": 25
     }, {
-        "title": "square",
+        "itemName": "square",
         "quantity": 8,
         "categories": [
             "tool"

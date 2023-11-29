@@ -5,21 +5,46 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>PokéDex</title>
 </head>
 <body style="display: flex; justify-content: center; align-content: center">
-<div id="pokedex" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXoRLjUmHvxpbzdRWBiONIi8CPQLmxrlkbRQ&usqp=CAU')">
-<form id="searchForm">
-    <label for="searchBar"></label>
-    <input type="text" id="searchBar" placeholder="Search PokéDex">
-    <input type="submit" id="searchButton" value="Search">
-</form>
 
+<!--***************************************************************************************************** PokéDex ***-->
+<!--<div id="pokedex" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXoRLjUmHvxpbzdRWBiONIi8CPQLmxrlkbRQ&usqp=CAU')">-->
+<!--<form id="searchForm">-->
+<!--    <label for="searchBar"></label>-->
+<!--    <input type="text" id="searchBar" placeholder="Search PokéDex">-->
+<!--    <input type="submit" id="searchButton" value="Search">-->
+<!--</form>-->
 
-<img src="" alt="">
-<div id="pokeData"></div>
-</div>
+<!--<img src="" alt="">-->
+<!--<div id="pokeData"></div>-->
+<!--</div>-->
 
+<!--************************************************************************************************** VIDEO GAME ***-->
+<div id="posts"></div>
 <script src="../warmUps_js/warm-Ups_Nov-2023.js"></script>
+
+<script>
+    const postsDiv = document.querySelector("#posts");
+
+    fetch("../../assignments/Nov-2023/ajax/data/to-do.json")
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(game => {
+                const postDiv = document.createElement("div");
+                postDiv.innerHTML = `<img src="${game.imager}">
+                                     <h1>${game.videoGame}</h1>
+                                     <p>Developers: ${game.developers}</p>
+                                     <p>Genre: ${game.genre}</p>
+                                     <p>Google Rating: ${game.googleRating}</p>
+                                     <br>
+                                     <br>`;
+
+                postsDiv.appendChild(postDiv);
+            });
+        });
+
+</script>
 </body>
 </html>

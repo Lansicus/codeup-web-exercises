@@ -1,0 +1,23 @@
+[
+  {
+    "videoGame": "Jack and Daxter",
+    "developers": [
+      "Insomniac Games", "Mass Media"
+    ],
+    "genre": ["Platform game", "&#xA0;Shooter game", "&#xA0;Action-adventure game "
+    ],
+    "googleRating": "96%",
+    "imager": "https://media.tenor.com/SSLSFY9-2Q0AAAAC/ratchet-clank.gif"
+  },
+
+  {
+  "videoGame": "Tom Clancy's Ghost Recon Breakpoint",
+  "developers": "Ubisoft Paris",
+  "genre": [
+    "Tactical shooter", "&#xA0;Role-playing video game "
+  ],
+  "googleRating": "83%",
+    "imager": "https://media.tenor.com/dyO6xkjSEXYAAAAd/taking-aim-aiming.gif"
+
+  }
+  ]

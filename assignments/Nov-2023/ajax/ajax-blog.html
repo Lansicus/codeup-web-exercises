@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Blog</title>
+</head>
+<body>
+
+<div id="posts"></div>
+<script>
+    const postsDiv = document.querySelector("#posts");
+
+    fetch("data/blog.json")
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(blogpost => {
+                const postDiv = document.createElement("div");
+                postDiv.innerHTML = `<h2>${blogpost.title}</h2>
+                                     <p>${blogpost.content}</p>
+                                     <p>${blogpost.date}</p>`
+
+                postsDiv.appendChild(postDiv)
+            })
+        })
+
+</script>
+</body>
+</html>
