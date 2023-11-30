@@ -3,7 +3,6 @@
 
 const cardDeck = document.getElementById("cardHolder")
 
-
 fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
     'id=4726206' +
     `&appid=${WEATHERKEY}` + `&units=imperial`)
@@ -25,8 +24,9 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
             const centerDiv = document.createElement("div")
             centerDiv.classList.add("centered")
             const dateDiv = document.createElement("div")
-            const tempHighDiv = document.createElement("span")
-            const tempLowDiv = document.createElement("span")
+            const spanHolder = document.createElement("div")
+            const tempHighDiv = document.createElement("div")
+            const tempLowDiv = document.createElement("div")
             const iconDiv = document.createElement("div")
             const descriptionDiv = document.createElement("div")
             const humidityDiv = document.createElement("div")
@@ -37,13 +37,16 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
             const hr2 = document.createElement("hr")
             const hr3 = document.createElement("hr")
             const lineBreak = document.createElement("br")
+            const lineBreak1 = document.createElement("br")
+            const lineBreak2 = document.createElement("br")
+            const lineBreak3 = document.createElement("br")
             const icon = document.createElement("img")
 
 
             icon.src = "http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"
             dateDiv.innerText = date;
-            tempHighDiv.innerText = `High: ${weather.main.temp_max} `;
-            tempLowDiv.innerText = `Low: ${weather.main.temp_min}`;
+            tempHighDiv.innerText = `High: ${weather.main.temp_max}°F `;
+            tempLowDiv.innerText = `Low: ${weather.main.temp_min}°F`;
             descriptionDiv.innerText = `Description: ${weather.weather[0].description}`;
             humidityDiv.innerText = `Humidity: ${weather.main.humidity}%`;
             windDiv.innerText = `Wind: ${weather.wind.speed}`;
@@ -53,13 +56,18 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
             cardDeck.appendChild(cardDiv)/*    <div class="card">*/
 
             cardDiv.appendChild(centerDiv)
+            centerDiv.appendChild(lineBreak)
             centerDiv.appendChild(dateDiv)
+            centerDiv.appendChild(lineBreak1)
+
             centerDiv.appendChild(tempHighDiv)
             centerDiv.appendChild(tempLowDiv)
+            centerDiv.appendChild(lineBreak2)
+
             centerDiv.appendChild(icon)
 
             cardDiv.appendChild(hr1)
-            cardDiv.appendChild(lineBreak)
+            cardDiv.appendChild(lineBreak3)
 
             cardDiv.appendChild(descriptionDiv)
             cardDiv.appendChild(humidityDiv)
