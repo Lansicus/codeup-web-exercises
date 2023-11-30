@@ -21,38 +21,39 @@
 <div id="searcher">
     <label for="search">Place</label>
     <input type="text" id="search">
-    <button id="sub" type="button">Find</button>
+    <button id="sub" type="submit">Find</button>
 </div>
 
 <!--************************************************************************************************** CARDS ********-->
 <div id="cardHolder">
-<!--    <div class="card">-->
-<!--        <div class="centered">-->
-<!--            <h2 id="date">date</h2>-->
-<!--            <h3 id="high">"Temp Low"<span id="low">"Temp High"</span></h3>-->
-<!--            <div id="cloud">cloud</div>-->
-<!--        </div>-->
-<!--        <hr>-->
-<!--        <br>-->
-<!--        <div id="description">Description:</div>-->
-<!--        <br>-->
-<!--        <br>-->
-<!--        <div id="humidity">Humidity:</div>-->
-<!--        <br>-->
-<!--        <hr>-->
-<!--        <div id="wind">Wind:</div>-->
-<!--        <hr>-->
-<!--        <div id="pressure">Pressure:</div>-->
-<!--    </div>-->
+    <!--    <div class="card">-->
+    <!--        <div class="centered">-->
+    <!--            <h2 id="date">date</h2>-->
+    <!--            <h3 id="high">"Temp Low"<span id="low">"Temp High"</span></h3>-->
+    <!--            <div id="cloud">cloud</div>-->
+    <!--        </div>-->
+    <!--        <hr>-->
+    <!--        <br>-->
+    <!--        <div id="description">Description:</div>-->
+    <!--        <br>-->
+    <!--        <br>-->
+    <!--        <div id="humidity">Humidity:</div>-->
+    <!--        <br>-->
+    <!--        <hr>-->
+    <!--        <div id="wind">Wind:</div>-->
+    <!--        <hr>-->
+    <!--        <div id="pressure">Pressure:</div>-->
+    <!--    </div>-->
 </div>
 <!--********************************************************************************************** MAP IMAGE ********-->
 <!-- The HTML element that serves as the Mapbox container -->
-<div id='map'></div>
+<div id="mapHolder">
+    <div id='map'></div>
+</div>
 
 
 <!--******************************************************************************************** SCRIPT TAGS ********-->
 <script src="../keys-Nov.js"></script>
-<script src="weather-icons.js"></script>
 <!-- Mapbox JS -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
 <!-- Custom JS -->

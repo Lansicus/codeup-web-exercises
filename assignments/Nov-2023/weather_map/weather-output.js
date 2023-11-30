@@ -8,16 +8,17 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
     `&appid=${WEATHERKEY}` + `&units=imperial`)
     .then(data => data.json())
     .then(result => {
-        console.log(result)
+        // console.log(result)
 
         const day = result.list;
+        console.log(day)
         // const icon = result.weather;
 
         for (let i = 0; i < day.length; i += 8) {
             const weather = day[i]
 
             const date = new Date(weather.dt * 1000).toLocaleDateString();
-            console.log(date);
+            const dayOfWeek = new Date(weather.dt * 1000).toLocaleDateString('en-US', { weekday: 'long' });
 
             const cardDiv = document.createElement("div")
             cardDiv.classList.add("card")
@@ -40,19 +41,20 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
             const lineBreak1 = document.createElement("br")
             const lineBreak2 = document.createElement("br")
             const lineBreak3 = document.createElement("br")
+            const lineBreak4 = document.createElement("br")
             const icon = document.createElement("img")
 
 
             icon.src = "http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"
-            dateDiv.innerText = date;
+            dateDiv.innerText = `${dayOfWeek}: ${date}`;
             tempHighDiv.innerText = `High: ${weather.main.temp_max}°F `;
             tempLowDiv.innerText = `Low: ${weather.main.temp_min}°F`;
             descriptionDiv.innerText = `Description: ${weather.weather[0].description}`;
             humidityDiv.innerText = `Humidity: ${weather.main.humidity}%`;
-            windDiv.innerText = `Wind: ${weather.wind.speed}`;
-            pressureDiv.innerText = `Pressure: ${weather.main.pressure}`;
+            windDiv.innerText = `Wind Speed: ${weather.wind.speed}`;
+            pressureDiv.innerText = `Pressure: ${weather.main.pressure}atm`;
 
-
+console.log(tempLowDiv)
             cardDeck.appendChild(cardDiv)/*    <div class="card">*/
 
             cardDiv.appendChild(centerDiv)
@@ -66,10 +68,11 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
 
             centerDiv.appendChild(icon)
 
-            cardDiv.appendChild(hr1)
+            // cardDiv.appendChild(hr1)
             cardDiv.appendChild(lineBreak3)
 
             cardDiv.appendChild(descriptionDiv)
+            cardDiv.appendChild(hr1)
             cardDiv.appendChild(humidityDiv)
 
             cardDiv.appendChild(hr2)
@@ -79,6 +82,8 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
             cardDiv.appendChild(hr3)
 
             cardDiv.appendChild(pressureDiv)
+            cardDiv.appendChild(lineBreak4)
+
         }
 
     })
