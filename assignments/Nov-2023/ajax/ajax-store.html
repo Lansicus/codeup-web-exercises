@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Online Store</title>
     <link rel="stylesheet" href="ajax.css">
+
 </head>
 <body>
 
@@ -15,60 +16,65 @@
 <br>
 <br>
 <div id="products">
-    <div class="product-header">
-        <span class="top" id="item">Title</span>
-        <span class="top" id="quantity">Quantity</span>
-        <span class="top" id="price">Price</span>
-        <span class="top" id="categories">Categories</span>
+    <div id="product-header">
+        <span class="top" id="itemName"><u>Title:</u></span>
+        <span class="top" id="quantity"><u>Quantity:</u></span>
+        <span class="top" id="price"><u>Price:</u></span>
+        <span class="top" id="categories"><u>Categories:</u></span>
     </div>
     <br>
     <br>
     <br>
-    <div id="insertProducts"></div>
 </div>
+
+<div id="insertProducts"></div>
+
 
 <script>
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
     // Define an asynchronous function to fetch and process data
+    /* Refactored Code */
+    // <span id="price">${thing.price}</span>
+    // <span id="categories">${thing.categories.join(', ')}</span>
+    /* Refactored Code */
+
     const fetchData = async () => {
         try {
-            // Fetch data from the specified JSON file
             const response = await fetch('data/inventory.json');
             const data = await response.json();
 
-            // Define an array of container IDs
-            const containers = ['products', 'quantity', 'price', 'categories'];
+            const insertProducts = document.getElementById('insertProducts');
+            const categoryIds = ['itemName', 'quantity', 'price', 'categories'];
 
-            // Iterate over each container ID
-            containers.forEach(containerId => {
-                // Get the container element by its ID
-                const container = document.getElementById(containerId);
+            data.forEach(thing => {
+                const productContainer = document.createElement('div');
+                productContainer.classList.add('product');
 
-                // Iterate over each item in the data
-                data.forEach(item => {
-                    // Check if the item has the specified containerId property
-                    if (containerId in item) {
-                        // Create a product element
-                        const product = document.createElement('div');
-                        // Add 'product' class to the product element
-                        product.classList.add('product');
-                        // Set innerHTML based on the container ID
-                        product.innerHTML = `<div>${item[containerId]}</div>`;
-                        // Append the product element to the container
-                        container.appendChild(product);
-                    }
+                categoryIds.forEach(categoryId => {
+                    const categorySpan = document.createElement('span');
+                    categorySpan.textContent = categoryId === 'categories' ? thing[categoryId].join(', ') : thing[categoryId];
+
+                    const topSpan = document.getElementById(categoryId);
+                    const topSpanContainer = document.createElement('div');
+                    topSpanContainer.appendChild(categorySpan);
+
+                    topSpan.appendChild(topSpanContainer);
                 });
+
+                insertProducts.appendChild(productContainer);
             });
         } catch (error) {
-            // Handle errors by logging them to the console
             console.log("Error: " + error.message);
         }
     };
 
-
-    // Call the fetchData function to initiate data fetching and processing
     fetchData();
+
+
+
+
+
 
 
 

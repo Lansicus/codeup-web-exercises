@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Marker Example</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Big Mappin'</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- Mapbox Geocoder Util Methods -->
+<script src="../keys-Nov.js"></script>
+<!-- Mapbox JS -->
+<script src="mapbox-geocoder-utils.js"></script>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+
+<!-- Custom JS -->
+<script>
+    mapboxgl.accessToken = MAPKEY;
+
+
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 18,
+        center: [-96.809164, 32.787948]
+    });
+
+    geocode("2401 Victory Park Ln #140, Dallas, TX 75219", MAPKEY)
+        .then(result => {
+            console.log(result)
+            map.setCenter(result);
+            map.setZoom(14);
+        });
+
+    /* #5 Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow
+     for best viewing distance.*/
+    // setting a marker object
+    const marker = new mapboxgl.Marker()
+        // adding marker to specific [lng, lat]
+        .setLngLat([-96.809164, 32.787948])
+        // adding marker to map
+        .addTo(map);
+
+    /* #6 Create a popup with the name of the restaurant. ----------------------------------------------------------------*/
+    // let chipotle = new mapboxgl.Popup()
+    //     // setting the content of my popup
+    //     .setHTML("<p>Welcome to Chili's!</p>")
+    //     // set the maximum width of the popup
+    //     .setMaxWidth("300px")
+    // // adds the popup to my map
+    // // .addTo(map);
+    //
+    // marker.setPopup(chipotle)
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(info.address, token).then(coords => {
+            console.log(coords)
+            let popup = new mapboxgl.Popup()
+                .setHTML(info.popupHTML);
+            let marker = new mapboxgl.Marker()
+                .setLngLat(coords)
+                .addTo(map)
+                .setPopup(popup);
+
+            /* #7 Make sure the info window does not display until the marker has been clicked on. -------------------------------*/
+            marker.getElement().addEventListener('click', function() {
+                marker.togglePopup();
+            });
+        });
+    }
+
+    const restaurantsInfo = [
+        {
+            name: "Chili's",
+            address: "2401 Victory Park Ln #140, Dallas, TX 75219",
+            popupHTML: "<p>Welcome to Chili's!</p>"
+        },
+        {
+            name: "Wendy's",
+            address: "601 N Hawkins St, Dallas, TX 75204",
+            popupHTML: "<p>This is a Wendy's</p>"
+        },
+        {
+            name: "Chipotle",
+            address: "2401 Victory Park Ln #140, Dallas, TX 75219",
+            popupHTML: "<p>That's bussin bussin</p>"
+        }
+    ];
+
+    restaurantsInfo.forEach(info => {
+        placeMarkerAndPopup(info, MAPKEY, map);
+    });
+
+</script>
+</body>
+</html>

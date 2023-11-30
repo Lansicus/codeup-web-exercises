@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="weather-map.css">
+
+</head>
+<body>
+<!--************************************************************************************************* HEADER ********-->
+<div id="header">
+    <span id="left-header">Weather App</span>
+    <span id="right-header">Current city:</span>
+</div>
+
+<!--********************************************************************************************* SEARCH BAR ********-->
+<div id="searcher">
+    <label for="search">Place</label>
+    <input type="text" id="search">
+    <button id="sub" type="button">Find</button>
+</div>
+
+<!--************************************************************************************************** CARDS ********-->
+<div id="cardHolder">
+    <div class="card" id="card1">
+        <div class="centered">
+            <h2 id="date">date</h2>
+            <h3 id="high">"Temp Low"<span id="low">"temp High"</span></h3>
+            <div id="cloud">cloud</div>
+        </div>
+        <hr>
+        <br>
+        <div id="description">Description:</div>
+        <br>
+        <br>
+        <div id="humidity">Humidity:</div>
+        <br>
+        <hr>
+        <div id="wind">Wind:</div>
+        <hr>
+        <div id="pressure">Pressure:</div>
+    </div>
+</div>
+<!--********************************************************************************************** MAP IMAGE ********-->
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+
+<!--******************************************************************************************** SCRIPT TAGS ********-->
+<script src="../keys-Nov.js"></script>
+<script src="weather-icons.js"></script>
+<!-- Mapbox JS -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+<!-- Custom JS -->
+<script src="weather-map.js"></script>
+
+</body>
+</html>
