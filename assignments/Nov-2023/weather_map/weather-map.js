@@ -21,11 +21,7 @@ function geocode(search, token) {
     // this fetch request takes in a url endpoint that will return the lgn, lat
     return fetch(`${baseUrl}${endPoint}${encodeURIComponent(search)}.json?access_token=${token}`)
         .then(res => res.json())
-        // to get all the data from the request, comment out the following three lines...
-        .then(data => {
-            // console.log(data)
-            return data.features[0].center;
-        });
+        .then(data => data.features[0].center);
 }
 
 /*------------------------------------------------------------------------- ESTABLISH REVERSE GEOCODE FUNCTION -------*/
@@ -34,7 +30,6 @@ function reverseGeocode(coordinates, token) {
     let endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(`${baseUrl}${endPoint}${coordinates.lng},${coordinates.lat}.json?access_token=${token}`)
         .then(res => res.json())
-        // to get all the data from the request, comment out the following three lines...
         .then(data => data.features[0].place_name);
 }
 
@@ -79,20 +74,9 @@ function fetchWeatherData(lng, lat) {
         `&appid=${WEATHERKEY}` + `&units=imperial`)
         .then(data => data.json())
         .then(result => {
-            triggerLocationChangeEvent([lng, lat]); // Trigger locationChange event with the updated location
+            triggerLocationChangeEvent([lng, lat]);
         });
 }
-
-// Event listener for the submit button
-document.getElementById("sub").addEventListener("click", function () {
-    let currentLocation = geocode(document.getElementById("search").value, MAPKEY);
-
-    currentLocation.then(result => {
-        map.setCenter([result[0], result[1]]);
-        updateMarkerLocation(result, true); // Set fromSubmit to true
-        fetchWeatherData(result[0], result[1]); // Fetch weather data based on the new location
-    });
-});
 
 // Event listener for the marker dragend
 marker.on('dragend', onDragEnd);
@@ -104,41 +88,43 @@ function onDragEnd() {
     coordinates.style.display = 'block';
     coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
 
-    // move map to where the marker is dragged
     map.flyTo({
         zoom: 15,
         center: [lngLat.lng, lngLat.lat],
         essential: false
     });
 
-    fetchWeatherData(lngLat.lng, lngLat.lat); // Fetch weather data based on the new marker location
+    fetchWeatherData(lngLat.lng, lngLat.lat);
 }
 
 /*------------------------------------------------------------------------------------ SEARCH BAR FUNCTIONALITY ------*/
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("search");
 
+// Event listener for the submit button
 searchForm.addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevents the default form submission behavior
+    event.preventDefault();
 
     let currentLocation = geocode(searchInput.value, MAPKEY);
 
     currentLocation.then(result => {
-        // Set SameSite attribute for the cookie
         document.cookie = "yourCookieName=yourCookieValue; samesite=None; secure";
-
         map.setCenter([result[0], result[1]]);
-        updateMarkerLocation(result, true); // Set fromSubmit to true
-
-        // Trigger an event to notify weather-output.js about the location update
+        updateMarkerLocation(result, true);
         const locationChangeEvent = new CustomEvent("locationChange", {detail: result});
         document.dispatchEvent(locationChangeEvent);
+
+        // Add the search input value as a span to the container '#right-header'
+        const rightHeaderContainer = document.getElementById("right-header");
+        const searchInputValue = searchInput.value;
+
+        if (searchInputValue) {
+            const spanElement = document.createElement("span");
+            spanElement.textContent = ` ${searchInputValue.charAt(0).toUpperCase()}${searchInputValue.slice(1)}`;
+            rightHeaderContainer.appendChild(spanElement);
+        }
+
+        // Clear the search input value
+        searchInput.value = "";
     });
 });
-
-
-
-
-
-
-

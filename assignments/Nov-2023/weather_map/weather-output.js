@@ -24,11 +24,15 @@ function createAndAppend(parent, tag, text = '', attribute = null, attributeValu
 }
 
 function fetchWeatherData(lng, lat) {
+    console.log('Fetching weather data for coordinates:', lng, lat);
+
     fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
         `lat=${lat}&lon=${lng}` +
         `&appid=${WEATHERKEY}` + `&units=imperial`)
         .then(response => response.json())
         .then(data => {
+            console.log('Weather data response:', data);
+
             if (data && data.list) {
                 const day = data.list;
                 cardDeck.innerHTML = '';
@@ -55,13 +59,13 @@ function fetchWeatherData(lng, lat) {
                     setAttributeIfExists(icon, "width", "70");  // Adjust the width as needed
                     setAttributeIfExists(icon, "height", "70"); // Adjust the height as needed
 
-                    createAndAppend(centerDiv, "div", `Description: ${weather.weather[0].description}`);
+                    createAndAppend(centerDiv, "div", `${weather.weather[0].description.charAt(0).toUpperCase()}${weather.weather[0].description.slice(1)}`);
                     createAndAppend(centerDiv, "hr");
-                    createAndAppend(centerDiv, "div", `Humidity: ${weather.main.humidity}%`);
+                    createAndAppend(centerDiv, "div", `${weather.main.humidity}% Humidity`);
                     createAndAppend(centerDiv, "hr");
-                    createAndAppend(centerDiv, "div", `Wind Speed: ${weather.wind.speed}`);
+                    createAndAppend(centerDiv, "div", `Wind Speed: ${weather.wind.speed} mph`);
                     createAndAppend(centerDiv, "hr");
-                    createAndAppend(centerDiv, "div", `Pressure: ${weather.main.pressure}atm`);
+                    createAndAppend(centerDiv, "div", `Pressure: ${weather.main.pressure} atm`);
                     createAndAppend(centerDiv, "br");
 
                     cardDeck.appendChild(cardDiv);
