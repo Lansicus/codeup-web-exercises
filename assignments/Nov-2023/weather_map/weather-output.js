@@ -50,9 +50,9 @@ function fetchWeatherData(lng, lat) {
                     createAndAppend(centerDiv, "br");
                     createAndAppend(centerDiv, "div", `${date}: ${new Date(weather.dt * 1000).toLocaleDateString()}`);
                     createAndAppend(centerDiv, "br");
-                    createAndAppend(centerDiv, "div", `High: ${weather.main.temp_max}°F`);
+                    createAndAppend(centerDiv, "div", `Temp: ${weather.main.temp}°F`);
                     createAndAppend(centerDiv, "br");
-                    createAndAppend(centerDiv, "div", `Low: ${weather.main.temp_min}°F`);
+                    createAndAppend(centerDiv, "div", `Feels like: ${weather.main.feels_like}°F`);
 
                     const icon = createAndAppend(centerDiv, "img", null, "id", "cloud");
                     icon.src = `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
@@ -63,9 +63,9 @@ function fetchWeatherData(lng, lat) {
                     createAndAppend(centerDiv, "hr");
                     createAndAppend(centerDiv, "div", `${weather.main.humidity}% Humidity`);
                     createAndAppend(centerDiv, "hr");
-                    createAndAppend(centerDiv, "div", `Wind Speed: ${weather.wind.speed} mph`);
-                    createAndAppend(centerDiv, "hr");
                     createAndAppend(centerDiv, "div", `Pressure: ${weather.main.pressure} atm`);
+                    createAndAppend(centerDiv, "hr");
+                    createAndAppend(centerDiv, "div", `Wind Speed: ${weather.wind.speed} mph`);
                     createAndAppend(centerDiv, "br");
 
                     cardDeck.appendChild(cardDiv);

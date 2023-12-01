@@ -94,34 +94,59 @@ function onDragEnd() {
         essential: false
     });
 
+    // Use reverseGeocode to get the location name asynchronously
+    reverseGeocode(lngLat, MAPKEY)
+        .then(locationName => {
+            // Update the text content of the spanElement
+            spanElement.textContent = ` ${locationName}`;
+        })
+        .catch(error => {
+            console.error('Error getting location from drag:', error);
+        });
+
     fetchWeatherData(lngLat.lng, lngLat.lat);
 }
 
 /*------------------------------------------------------------------------------------ SEARCH BAR FUNCTIONALITY ------*/
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("search");
+const spanElement = document.createElement("span");
+const rightHeaderContainer = document.getElementById("right-header");
 
+// Get the initial marker location
+const initialMarkerLocation = marker.getLngLat();
+
+// Use reverseGeocode to get the location name asynchronously
+reverseGeocode(initialMarkerLocation, MAPKEY)
+    .then(locationName => {
+        // Set the text content of the spanElement
+        spanElement.textContent = ` ${locationName}`;
+
+        // Append the spanElement to the rightHeaderContainer
+        rightHeaderContainer.appendChild(spanElement);
+    })
+    .catch(error => {
+        console.error('Error getting initial location:', error);
+    });
 // Event listener for the submit button
 searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
+
     let currentLocation = geocode(searchInput.value, MAPKEY);
 
     currentLocation.then(result => {
-        document.cookie = "yourCookieName=yourCookieValue; samesite=None; secure";
+        document.cookie = `weatherAppLocation=${JSON.stringify(currentLocation)}; samesite=None; secure`;
         map.setCenter([result[0], result[1]]);
         updateMarkerLocation(result, true);
         const locationChangeEvent = new CustomEvent("locationChange", {detail: result});
         document.dispatchEvent(locationChangeEvent);
 
         // Add the search input value as a span to the container '#right-header'
-        const rightHeaderContainer = document.getElementById("right-header");
         const searchInputValue = searchInput.value;
 
         if (searchInputValue) {
-            const spanElement = document.createElement("span");
             spanElement.textContent = ` ${searchInputValue.charAt(0).toUpperCase()}${searchInputValue.slice(1)}`;
-            rightHeaderContainer.appendChild(spanElement);
         }
 
         // Clear the search input value
