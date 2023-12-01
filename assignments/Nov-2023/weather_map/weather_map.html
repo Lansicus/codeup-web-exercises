@@ -19,9 +19,11 @@
 
 <!--********************************************************************************************* SEARCH BAR ********-->
 <div id="searcher">
-    <label for="search">Place</label>
-    <input type="text" id="search">
-    <button id="sub" type="submit">Find</button>
+    <form id="searchForm">
+        <label for="search"></label>
+        <input type="text" id="search" placeholder="Where to?">
+        <button id="sub" type="submit">Find</button>
+    </form>
 </div>
 
 <!--************************************************************************************************** CARDS ********-->
@@ -50,7 +52,7 @@
 <div id="mapHolder">
     <div id='map'></div>
 </div>
-
+<pre id="coordinates" class="coordinates"></pre>
 
 <!--******************************************************************************************** SCRIPT TAGS ********-->
 <script src="../keys-Nov.js"></script>
