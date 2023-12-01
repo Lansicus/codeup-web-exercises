@@ -1,3 +1,5 @@
+//CHANGING
+
 // weather-map.js
 
 /*-------------------------------------------------------------------------- ESTABLISH MARKER & POPUP FUNCTION -------*/
@@ -66,7 +68,7 @@ function updateMarkerLocation(lngLat) {
 
 // Trigger a custom event when the location changes
 function triggerLocationChangeEvent(location) {
-    const event = new CustomEvent("locationChange", { detail: location });
+    const event = new CustomEvent("locationChange", {detail: location});
     document.dispatchEvent(event);
 }
 
@@ -129,42 +131,12 @@ searchForm.addEventListener("submit", function (event) {
         updateMarkerLocation(result, true); // Set fromSubmit to true
 
         // Trigger an event to notify weather-output.js about the location update
-        const locationChangeEvent = new CustomEvent("locationChange", { detail: result });
+        const locationChangeEvent = new CustomEvent("locationChange", {detail: result});
         document.dispatchEvent(locationChangeEvent);
     });
 });
 
 
-
-/*--------------------------------------------------------------------------------------------  ------*/
-
-
-//// setting a marker object
-// const marker = new mapboxgl.Marker()
-//     // adding marker to specific [lng, lat]
-//     .setLngLat([-96.80330059331894, 32.777946644194934])
-//     // adding marker to map
-//     .addTo(map);
-//// setting a popup object
-// let popup = new mapboxgl.Popup()
-//     // adding popup to specific [lng, lat]
-//     .setLngLat([-96.80330059331894, 32.777946644194934])
-//     // setting the content of my popup
-//     .setHTML("<p>Codeup Rocks!</p>")
-//     // set the maximum width of the popup
-//     .setMaxWidth("300px")
-//     // adds the popup to my map
-//     .addTo(map);
-// const codeupPopup = new mapboxgl.Popup()
-//     .setHTML("<p>Welcome to San Antonio!</p>");
-// marker.setPopup(codeupPopup);
-// geocode("San Antonio", MAPKEY)
-//     .then(result => { console.log(result)
-//         map.setCenter(result);
-//         map.setZoom(10)})
-//// reverse geocode method from mapbox-geocoder-utils.js
-// reverseGeocode({lng: -98.4861, lat: 29.4260}, MAPKEY).
-// then( results => console.log(results) );
 
 
 

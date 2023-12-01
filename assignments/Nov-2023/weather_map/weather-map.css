@@ -41,10 +41,24 @@
     text-align: center;
 }
 
+.cloud {
+    /*width: 500px;*/
+    /*height: 500px;*/
+}
+
 /*----------------------------------------------------------------------------------------------------- MAP ----------*/
 #mapHolder {
+    position: relative;
     display: flex;
     justify-content: center;
+}
+
+#coordinates {
+    position: absolute;
+    bottom: 5.5%;
+    left: 78%; /* Use "left" as 50% for horizontal centering */
+    transform: translateX(50%); /* Use transform to adjust position */
+    /*width: 20em;*/
 }
 
 #map {
