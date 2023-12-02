@@ -12,6 +12,7 @@ function placeMarkerAndPopup(info, token, map) {
     });
 }
 
+
 /*--------------------------------------------------------------------------------- ESTABLISH GEOCODE FUNCTION -------*/
 function geocode(search, token) {
     // api url
@@ -24,6 +25,7 @@ function geocode(search, token) {
         .then(data => data.features[0].center);
 }
 
+
 /*------------------------------------------------------------------------- ESTABLISH REVERSE GEOCODE FUNCTION -------*/
 function reverseGeocode(coordinates, token) {
     let baseUrl = 'https://api.mapbox.com';
@@ -33,14 +35,58 @@ function reverseGeocode(coordinates, token) {
         .then(data => data.features[0].place_name);
 }
 
+
 /*--------------------------------------------------------------------------------------- ESTABLISHING THE MAP -------*/
+
+
+// Initial zoom levels corresponding to the values in the select dropdown
+const zoomLevels = {
+    zoom1: 1,
+    zoom2: 5,
+    zoom3: 10,
+    zoom4: 15,
+};
+const mapMode = {
+    baseMap: "streets-v12",
+    darkMap: "dark-v11",
+    lightMap: "light-v11",
+    satMap: "satellite-streets-v12",
+};
+
 mapboxgl.accessToken = MAPKEY;
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v11',
-    zoom: 1,
-    center: [-96.80330059331894, 32.777946644194934]
+    style: `mapbox://styles/mapbox/${mapMode.darkMap}`,
+    zoom: zoomLevels.zoom1,
+    center: [-96.80330059331894, 32.777946644194934],
 });
+
+map.on('error', (e) => {
+    console.error('Mapbox error:', e.error);
+});
+
+document.getElementById('zoomies').addEventListener('change', function () {
+    const selectedZoom = this.value;
+    map.setZoom(zoomLevels[selectedZoom]);
+});
+
+document.getElementById('mapType').addEventListener('change', function () {
+    const selectedMapType = this.value;
+    map.setStyle(`mapbox://styles/mapbox/${mapMode[selectedMapType]}`);
+});
+
+
+
+/*-------------------------------------------------------------------------------------------------- DARK MODE -------*/
+document.getElementById("modeSwitch").addEventListener("change", function() {
+    // Get the current background color
+    const currentBackgroundColor = document.querySelector("body").style.backgroundColor;
+
+    // Set the background color based on the current background color
+    document.querySelector("body").style.backgroundColor = (currentBackgroundColor === "white") ? "black" : "white";
+});
+
+
 
 /*-------------------------------------------------------------------------------------------- DRAGGABLE MARKER ------*/
 let marker = createMarker([-96.80330059331894, 32.777946644194934]);
@@ -89,7 +135,7 @@ function onDragEnd() {
     coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
 
     map.flyTo({
-        zoom: 15,
+        // zoom: 15,
         center: [lngLat.lng, lngLat.lat],
         essential: false
     });

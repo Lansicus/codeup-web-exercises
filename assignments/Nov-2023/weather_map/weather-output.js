@@ -43,6 +43,7 @@ function fetchWeatherData(lng, lat) {
 
                     const cardDiv = createCardElement("div");
                     cardDiv.classList.add("card");
+                    cardDiv.setAttribute(`id`, `card:${i}`);
 
                     const centerDiv = createCardElement("div");
                     centerDiv.classList.add("centered");

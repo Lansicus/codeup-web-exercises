@@ -1,17 +1,19 @@
 
-
+* {
+    color: white;
+}
 /*-------------------------------------------------------------------------------------------------- HEADER ----------*/
 #header {
     width: 100%;
-    background-color: #002CFFCC;
-    box-shadow: 1px 2px 10px rgba(79, 3, 3, 0.81);
+    background-color: #002447;
+    box-shadow: 1px 2px 10px rgb(74, 15, 35);
     padding: .5em;
     position: absolute; top: 0;
 }
 #left-header {
     font-size: x-large;
     margin-left: 1%;
-    margin-right: 75%;
+    margin-right: 45%;
 }
 #right-header{
     margin-left: 1%;
@@ -20,6 +22,46 @@
 #searcher {
     margin: 5em 2em 2em;
 }
+.input {
+    background-color: #212121;
+    max-width: 190px;
+    height: 30px;
+    padding: 10px;
+    /* text-align: center; */
+    border: 2px solid #002447;
+    border-radius: 45px;
+    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+}
+
+.input:focus button:focus {
+    color: rgb(0, 36, 71);
+    background-color: #212121;
+    outline-color: rgb(0, 36, 71);
+    box-shadow: -3px -3px 15px rgb(0, 36, 71);
+    transition: .1s;
+    transition-property: box-shadow;
+}
+
+button {
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    /*border: black 2px solid;*/
+    border-radius: 45px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease .3s;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+
+
 
 /*--------------------------------------------------------------------------------------------------- CARDS ----------*/
 #cardHolder {
@@ -34,7 +76,7 @@
     height: 35vh;
     border-radius: 5px;
     background-color: rgba(79, 3, 3, 0.81);
-    box-shadow: 1px 2px 10px rgba(0, 44, 255, 0.8);
+    box-shadow: 1px 2px 10px rgb(0, 36, 71);
 }
 
 .centered {
@@ -45,6 +87,29 @@
     /*width: 500px;*/
     /*height: 500px;*/
 }
+
+
+/*------------------------------------------------------------------------------------------------- ZOOMIES ----------*/
+#zoomHolder {
+    width: max-content;
+    background-color: grey;
+    border-radius: 5px;
+}
+#zoomies {
+    background-color: grey;
+}
+
+
+/*------------------------------------------------------------------------------------------------- MAPTYPE ----------*/
+#mapTypeHolder {
+    width: max-content;
+    background-color: grey;
+    border-radius: 5px;
+}
+#mapType {
+    background-color: grey;
+}
+
 
 /*----------------------------------------------------------------------------------------------------- MAP ----------*/
 #mapHolder {
@@ -65,7 +130,7 @@
     /* the width and height may be set to any size */
     width: 95%;
     height: 40vh;
-    border: #8b0019 solid 3px;
+    border: #8b9dad solid 3px;
     border-radius: 5px;
     margin: 4em 4em 0 4em;
 }
@@ -85,3 +150,111 @@
     display: none;
 }
 
+/*---------------------------------------------------------------------------------------- DARK-MODE TOGGLE ----------*/
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #73C0FC;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    left: 2px;
+    bottom: 2px;
+    z-index: 2;
+    background-color: #e8e8e8;
+    transition: .4s;
+}
+
+.sun svg {
+    position: absolute;
+    top: 6px;
+    left: 36px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+}
+
+.moon svg {
+    fill: #73C0FC;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+}
+
+/* .switch:hover */.sun svg {
+                       animation: rotate 15s linear infinite;
+                   }
+
+@keyframes rotate {
+
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* .switch:hover */.moon svg {
+                       animation: tilt 5s linear infinite;
+                   }
+
+@keyframes tilt {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.input:checked + .slider {
+    background-color: #183153;
+}
+
+.input:focus + .slider {
+    box-shadow: 0 0 1px #183153;
+}
+
+.input:checked + .slider:before {
+    transform: translateX(30px);
+}
