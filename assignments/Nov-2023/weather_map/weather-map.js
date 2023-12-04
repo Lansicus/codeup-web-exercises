@@ -1,4 +1,4 @@
-//CHANGING
+//CHANGING NOW
 
 // weather-map.js
 
@@ -37,6 +37,7 @@ function reverseGeocode(coordinates, token) {
 
 
 /*--------------------------------------------------------------------------------------- ESTABLISHING THE MAP -------*/
+/*--------------------------------------------------------------------------------------- ZOOM AND MAP FEATURE -------*/
 
 
 // Initial zoom levels corresponding to the values in the select dropdown
@@ -56,7 +57,7 @@ const mapMode = {
 mapboxgl.accessToken = MAPKEY;
 const map = new mapboxgl.Map({
     container: 'map',
-    style: `mapbox://styles/mapbox/${mapMode.darkMap}`,
+    style: `mapbox://styles/mapbox/${mapMode.baseMap}`,
     zoom: zoomLevels.zoom1,
     center: [-96.80330059331894, 32.777946644194934],
 });
@@ -78,7 +79,10 @@ document.getElementById('mapType').addEventListener('change', function () {
 
 
 /*-------------------------------------------------------------------------------------------------- DARK MODE -------*/
-document.getElementById("modeSwitch").addEventListener("change", function() {
+// Check the initial state of the checkbox and set the background color accordingly
+document.querySelector("body").style.backgroundColor = document.getElementById("modeSwitch").checked ? "black" : "white";
+
+document.getElementById("modeSwitch").addEventListener("change", function () {
     // Get the current background color
     const currentBackgroundColor = document.querySelector("body").style.backgroundColor;
 
@@ -157,7 +161,7 @@ function onDragEnd() {
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("search");
 const spanElement = document.createElement("span");
-const rightHeaderContainer = document.getElementById("right-header");
+const rightHeaderContainer = document.getElementById("location-holder");
 
 // Get the initial marker location
 const initialMarkerLocation = marker.getLngLat();
@@ -199,3 +203,26 @@ searchForm.addEventListener("submit", function (event) {
         searchInput.value = "";
     });
 });
+
+
+/*------------------------------------------------------------------------------------------------------ SLIDER ------*/
+// document.addEventListener("DOMContentLoaded", function () {
+//     const scrollImages = document.querySelector(".scroll-images");
+//
+//     function leftScroll() {
+//         scrollImages.scrollBy({
+//             left: -200,
+//             behavior: "smooth"
+//         });
+//     }
+//
+//     function rightScroll() {
+//         scrollImages.scrollBy({
+//             left: 200,
+//             behavior: "smooth"
+//         });
+//     }
+//
+//     window.leftScroll = leftScroll;
+//     window.rightScroll = rightScroll;
+// });

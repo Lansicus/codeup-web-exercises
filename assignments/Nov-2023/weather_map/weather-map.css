@@ -70,10 +70,10 @@ button {
     flex-wrap: wrap;
 }
 .card {
-    margin: .5em 1em;
+    margin: 1em 1em;
     padding: 1em 2em;
     width: 12em;
-    height: 35vh;
+    height: 320px;
     border-radius: 5px;
     background-color: rgba(79, 3, 3, 0.81);
     box-shadow: 1px 2px 10px rgb(0, 36, 71);
@@ -89,14 +89,25 @@ button {
 }
 
 
+/*---------------------------------------------------------------------------------------------- DROP-DOWNS ----------*/
+#drop-downs {
+    /*display: flex;*/
+    /*align-items: flex-end;*/
+}
+
+
 /*------------------------------------------------------------------------------------------------- ZOOMIES ----------*/
 #zoomHolder {
     width: max-content;
     background-color: grey;
     border-radius: 5px;
+    padding-left: 5px;
+    margin-top: 1em;
+    margin-bottom: .5em;
 }
 #zoomies {
     background-color: grey;
+     border-radius: 5px;
 }
 
 
@@ -105,9 +116,11 @@ button {
     width: max-content;
     background-color: grey;
     border-radius: 5px;
+    padding-left: 5px;
 }
 #mapType {
     background-color: grey;
+    border-radius: 5px;
 }
 
 
@@ -258,3 +271,69 @@ button {
 .input:checked + .slider:before {
     transform: translateX(30px);
 }
+
+
+/*!*--------------------------------------------------------------------------------------------------------------------*!*/
+/*!* Add styles for card container *!*/
+/*.card-container {*/
+/*    position: relative;*/
+/*    padding: 0 30px;*/
+/*    margin-top: 100px;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*!* Add styles for card scroll *!*/
+/*.scroll-images {*/
+/*    display: flex;*/
+/*    flex-wrap: nowrap;*/
+/*    overflow-x: auto;*/
+/*    scroll-snap-type: x mandatory;*/
+/*    -webkit-overflow-scrolling: touch;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*!* Add styles for card *!*/
+/*.child {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    min-width: 250px;*/
+/*    height: 200px;*/
+/*    padding: 0px 15px;*/
+/*    margin: 1px 10px;*/
+/*    border: 1px solid #f1f1f1;*/
+/*    overflow: hidden;*/
+/*    scroll-snap-align: start;*/
+/*    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);*/
+/*    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);*/
+/*}*/
+
+/*.child img, .child > svg {*/
+/*    width: 80px;*/
+/*    height: 80px;*/
+/*    object-fit: cover;*/
+/*    object-position: center;*/
+/*    border-radius: 50%;*/
+/*    background: #03A9F4;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*!* Add styles for navigation buttons *!*/
+/*.left, .right {*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    font-size: 25px;*/
+/*    background-color: transparent;*/
+/*    border: none;*/
+/*    outline: none;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.left {*/
+/*    left: 0;*/
+/*}*/
+
+/*.right {*/
+/*    right: 0;*/
+/*}*/
